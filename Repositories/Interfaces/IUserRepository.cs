@@ -8,6 +8,6 @@ namespace Repositories.Interfaces
 {
     public interface IUserRepository
     {
-        
+        List<string> List();
     }
 }

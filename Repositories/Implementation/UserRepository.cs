@@ -9,5 +9,12 @@ namespace Repositories.Implementation
 {
     public class UserRepository : IUserRepository
     {
+        public List<string> List()
+        {
+            return new List<string>()
+            {
+                "1", "2", "3"
+            };
+        }
     }
 }

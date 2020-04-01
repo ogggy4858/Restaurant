@@ -1,0 +1,13 @@
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\Models.dll.config
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\Models.dll
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\Models.pdb
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\Common.dll
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\EntityFramework.dll
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\EntityFramework.SqlServer.dll
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\Common.pdb
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\EntityFramework.xml
+F:\khiem-restaurant\Restaurant\Models\bin\Debug\EntityFramework.SqlServer.xml
+F:\khiem-restaurant\Restaurant\Models\obj\Debug\Models.csprojAssemblyReference.cache
+F:\khiem-restaurant\Restaurant\Models\obj\Debug\Models.csproj.CopyComplete
+F:\khiem-restaurant\Restaurant\Models\obj\Debug\Models.dll
+F:\khiem-restaurant\Restaurant\Models\obj\Debug\Models.pdb
