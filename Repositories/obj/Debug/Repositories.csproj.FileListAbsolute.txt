@@ -1,0 +1,5 @@
+F:\khiem-restaurant\Restaurant\Repositories\bin\Debug\Repositories.dll
+F:\khiem-restaurant\Restaurant\Repositories\bin\Debug\Repositories.pdb
+F:\khiem-restaurant\Restaurant\Repositories\obj\Debug\Repositories.csprojAssemblyReference.cache
+F:\khiem-restaurant\Restaurant\Repositories\obj\Debug\Repositories.dll
+F:\khiem-restaurant\Restaurant\Repositories\obj\Debug\Repositories.pdb
