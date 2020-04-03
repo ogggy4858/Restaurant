@@ -35,5 +35,10 @@ namespace WebApp.Controllers
 
             return View();
         }
+
+        public ActionResult GGGGGGGGG()
+        {
+            return View();
+        }
     }
 }

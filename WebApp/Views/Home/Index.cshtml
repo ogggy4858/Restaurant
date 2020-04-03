@@ -2,17 +2,5 @@
 
 @{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-<table>
-    <tr>
-        <td>Value</td>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item</td>
-        </tr>
-    }
-</table>
