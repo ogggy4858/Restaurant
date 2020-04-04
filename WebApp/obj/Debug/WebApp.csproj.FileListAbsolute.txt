@@ -1,3 +1,4 @@
+F:\khiem-restaurant\Restaurant\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
 F:\khiem-restaurant\Restaurant\WebApp\bin\WebApp.dll.config
 F:\khiem-restaurant\Restaurant\WebApp\bin\WebApp.dll
 F:\khiem-restaurant\Restaurant\WebApp\bin\WebApp.pdb
@@ -117,7 +118,12 @@ F:\khiem-restaurant\Restaurant\WebApp\bin\Unity.Abstractions.pdb
 F:\khiem-restaurant\Restaurant\WebApp\bin\Unity.Container.pdb
 F:\khiem-restaurant\Restaurant\WebApp\bin\Unity.Mvc.pdb
 F:\khiem-restaurant\Restaurant\WebApp\bin\Antlr3.Runtime.pdb
-F:\khiem-restaurant\Restaurant\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
 F:\khiem-restaurant\Restaurant\WebApp\obj\Debug\WebApp.csproj.CopyComplete
 F:\khiem-restaurant\Restaurant\WebApp\obj\Debug\WebApp.dll
 F:\khiem-restaurant\Restaurant\WebApp\obj\Debug\WebApp.pdb
+F:\khiem-restaurant\Restaurant\WebApp\bin\Models.dll
+F:\khiem-restaurant\Restaurant\WebApp\bin\Models.pdb
+F:\khiem-restaurant\Restaurant\WebApp\bin\Models.dll.config
+F:\khiem-restaurant\Restaurant\WebApp\bin\X.PagedList.dll
+F:\khiem-restaurant\Restaurant\WebApp\bin\X.PagedList.Mvc.Bootstrap4.dll
+F:\khiem-restaurant\Restaurant\WebApp\bin\X.PagedList.Mvc.dll

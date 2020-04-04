@@ -15,6 +15,7 @@ namespace Repositories
         protected override void Initialize()
         {
             Container.RegisterType<IUserRepository, UserRepository>();
+            Container.RegisterType<IFoodCategoryRepository, FoodCategoryRepository>();
         }
     }
 }

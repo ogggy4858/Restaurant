@@ -18,8 +18,8 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            var list =  _userRepository.List();
-            return View(list);
+            //var list =  _userRepository.List();
+            return View();
         }
 
         public ActionResult About()
