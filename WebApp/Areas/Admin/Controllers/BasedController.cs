@@ -8,10 +8,6 @@ namespace WebApp.Areas.Admin.Controllers
 {
     public class BasedController : Controller
     {
-        // GET: Admin/Based
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
     }
 }

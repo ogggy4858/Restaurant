@@ -229,6 +229,7 @@
     <Content Include="Areas\Admin\Libraries\css\style.css" />
     <Content Include="Areas\Admin\Libraries\images\logo.jpg" />
     <Content Include="Areas\Admin\Libraries\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Libraries\js\food.js" />
     <Content Include="Areas\Admin\Libraries\js\foodCategory.js" />
     <Content Include="Areas\Admin\Libraries\js\jquery.min.js" />
     <Content Include="Areas\Admin\Libraries\js\main.js" />
@@ -568,7 +569,6 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\Food\Index.cshtml" />
     <Content Include="Areas\Admin\Libraries\css\.DS_Store" />
     <Content Include="Areas\Admin\Libraries\css\bootstrap\.DS_Store" />
     <Content Include="Areas\Admin\Libraries\css\bootstrap\mixins\.DS_Store" />
@@ -669,6 +669,9 @@
     <Content Include="Areas\Admin\Libraries\scss\style.scss" />
     <Content Include="Areas\Admin\Views\FoodCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\FoodCategory\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Food\Create.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -60,7 +60,9 @@ namespace Repositories.Implementation
 
         public void Delete(Guid id)
         {
-
+            var detail = Detail(id);
+            detail.Status = Common.CommonStatus.Delete;
+            _context.SaveChanges();
         }
 
         public Food Detail(Guid id)
