@@ -7,6 +7,10 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+@section Title{
+    @ViewBag.Title
+}
+
 <p>
     @Html.ActionLink("Thêm mới", "Create")
 </p>

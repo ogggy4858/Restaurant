@@ -1,8 +1,12 @@
 ﻿@model ViewModels.FoodVM
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Quản lý món ăn";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
 }
 
 @using (Html.BeginForm("Edit", "Food", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -56,7 +60,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-primary" >Sửa</button>
+                <button type="submit" class="btn btn-primary">Sửa</button>
                 @Html.ActionLink("Quay lại", "Index")
             </div>
         </div>

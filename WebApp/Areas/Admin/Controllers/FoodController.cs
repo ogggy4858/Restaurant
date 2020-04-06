@@ -22,7 +22,7 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Food
-        public ActionResult Index(string searchKey = "", bool? status = null, int page = 1, int pageSize = 20)
+        public ActionResult Index(string searchKey = "", bool? status = null, int page = 1, int pageSize = 10)
         {
             var list = _foodRepository.GetList(searchKey, status, page, pageSize);
             return View(list);
@@ -42,12 +42,12 @@ namespace WebApp.Areas.Admin.Controllers
             try
             {
                 ViewBag.FoodCategoryId = SetDropdown(null);
-                if (image != null)
-                {
-                    model.Image = SaveImage(image);
-                }
                 if (ModelState.IsValid)
                 {
+                    if (image != null)
+                    {
+                        model.Image = SaveImage(image);
+                    }
                     _foodRepository.Create(model);
                     return RedirectToAction("Index");
                 }
@@ -83,7 +83,7 @@ namespace WebApp.Areas.Admin.Controllers
                     var detail = _foodRepository.DetailViewModel(model.Id);
                     if (image != null)
                     {
-                        RemoveImage(detail.Image);
+                        // RemoveImage(detail.Image);
                         model.Image = SaveImage(image);
                     }
                     else

@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    var price = Model == null ? "" : Model.Price.ToString();
 }
 
 @using (Html.BeginForm("Create", "Food", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -30,7 +31,8 @@
         <div class="form-group">
             Giá tiền
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @*@Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })*@
+                <input type="number" step="0.1" name="Price" value="@price" class="form-control">
                 @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
             </div>
         </div>
