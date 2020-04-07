@@ -17,6 +17,7 @@ namespace Repositories
             Container.RegisterType<IUserRepository, UserRepository>();
             Container.RegisterType<IFoodCategoryRepository, FoodCategoryRepository>();
             Container.RegisterType<IFoodRepository, FoodRepository>();
+            Container.RegisterType<IMenuRepository, MenuRepository>();
         }
     }
 }

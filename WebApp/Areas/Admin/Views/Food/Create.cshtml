@@ -1,9 +1,13 @@
 ﻿@model ViewModels.FoodVM
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Quản lý món ăn";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     var price = Model == null ? "" : Model.Price.ToString();
+}
+
+@section Title{
+    @ViewBag.Title
 }
 
 @using (Html.BeginForm("Create", "Food", FormMethod.Post, new { enctype = "multipart/form-data" }))

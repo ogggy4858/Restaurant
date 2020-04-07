@@ -1,14 +1,18 @@
 ﻿@model ViewModels.FoodCategoryVM
 
 @{
-    ViewBag.Title = "Thêm mới";
+    ViewBag.Title = "Quản lý danh mục món ăn";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-@using (Html.BeginForm("Create", "FoodCategory", FormMethod.Post)) 
+@section Title{
+    @ViewBag.Title
+}
+
+@using (Html.BeginForm("Create", "FoodCategory", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -21,7 +25,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary"/>
+                <input type="submit" value="Create" class="btn btn-primary" />
                 @Html.ActionLink("Quay lại", "Index")
             </div>
         </div>

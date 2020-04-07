@@ -17,5 +17,6 @@ namespace Repositories.Interfaces
         void Delete(Guid id);
         FoodVM DetailViewModel(Guid id);
         IPagedList<FoodVM> GetList(string searchKey = "", bool? status = null, int page = 1, int pageSize = 10);
+        List<FoodVM> GetList();
     }
 }

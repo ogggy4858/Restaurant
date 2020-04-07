@@ -6,7 +6,6 @@ namespace Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Menu")]
     public partial class Menu
     {
         public Guid Id { get; set; }
@@ -28,6 +27,8 @@ namespace Models
         public Guid? FoodId8 { get; set; }
 
         public bool Status { get; set; }
+
+        public DateTime CreateDate { get; set; }
 
         public virtual Food Food { get; set; }
 

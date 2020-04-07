@@ -19,5 +19,9 @@ namespace Models
         public string Message { get; set; }
 
         public bool Status { get; set; }
+
+        public DateTime CreateDate { get; set; }
+
+        public long OrderIndex { get; set; }
     }
 }

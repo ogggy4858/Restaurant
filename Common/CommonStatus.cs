@@ -11,8 +11,8 @@ namespace Common
         public const bool Active = true;
         public const bool Delete = false;
 
-        public const string ActiveDisplay = "Active";
-        public const string DeleteDisplay = "Deleted";
+        public const string ActiveDisplay = "Áp dụng";
+        public const string DeleteDisplay = "Không áp dụng";
 
         public static IDictionary<bool, string> StatusDisplay
         {

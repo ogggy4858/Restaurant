@@ -50,12 +50,24 @@ namespace Repositories.Implementation
                     Id = Guid.NewGuid(),
                     Image = model.Image,
                     Price = model.Price,
-                    Status = Common.CommonStatus.Active
+                    Status = Common.CommonStatus.Active,
+                    CreateDate = DateTime.Now,
+                    OrderIndex = GetNextOrder()
                 };
 
                 _context.Foods.Add(a);
                 _context.SaveChanges();
             }
+        }
+
+        private long GetNextOrder()
+        {
+            var max = _context.Foods.OrderByDescending(x => x.OrderIndex).FirstOrDefault();
+            if(max == null)
+            {
+                return 1;
+            }
+            return max.OrderIndex + 1;
         }
 
         public void Delete(Guid id)
@@ -93,7 +105,9 @@ namespace Repositories.Implementation
                 Image = detail.Image,
                 Status = detail.Status,
                 Price = detail.Price,
-                Name = detail.Name
+                Name = detail.Name,
+                CreateDate = detail.CreateDate,
+                OrderIndex = detail.OrderIndex
             };
         }
 
@@ -111,6 +125,30 @@ namespace Repositories.Implementation
             detail.Name = model.Name;
             detail.Price = model.Price;
             _context.SaveChanges();
+        }
+
+        public List<FoodVM> GetList()
+        {
+            return _context.Foods.Select(x => new FoodVM()
+            {
+                Name = x.Name,
+                Id = x.Id,
+                Image = x.Image,
+                Description = x.Description,
+                FoodCategoryId = x.FoodCategoryId,
+                FoodCategory = new FoodCategoryVM()
+                {
+                    Status = x.FoodCategory.Status,
+                    Id = x.FoodCategory.Id,
+                    Name = x.FoodCategory.Name
+                },
+                Status = x.Status,
+                Price = x.Price,
+                CreateDate = x.CreateDate,
+                OrderIndex = x.OrderIndex
+            })
+            .OrderBy(x => x.OrderIndex)
+            .ToList();
         }
 
         public IPagedList<FoodVM> GetList(string searchKey = "", bool? status = null, int page = 1, int pageSize = 10)
@@ -147,8 +185,11 @@ namespace Repositories.Implementation
                     Name = x.FoodCategory.Name
                 },
                 Status = x.Status,
-                Price = x.Price
-            }).OrderBy(x => x.Name)
+                Price = x.Price,
+                CreateDate = x.CreateDate,
+                OrderIndex = x.OrderIndex
+            })
+            .OrderBy(x => x.OrderIndex)
             .ToPagedList(page, pageSize);
         }
     }

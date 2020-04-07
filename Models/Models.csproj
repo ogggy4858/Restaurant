@@ -53,7 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="C__MigrationHistory.cs" />
     <Compile Include="Design.cs" />
     <Compile Include="DesignCategory.cs" />
     <Compile Include="FeedBack.cs" />

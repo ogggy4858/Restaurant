@@ -31,7 +31,8 @@ namespace ViewModels
         public long FoodCategoryId { get; set; }
         public bool Status { get; set; }
         public FoodCategoryVM FoodCategory { get; set; }
-
+        public DateTime CreateDate { get; set; }
+        public long OrderIndex { get; set; }
         public ICollection<MenuVM> Menus { get; set; }
         public ICollection<MenuVM> Menus1 { get; set; }
         public ICollection<MenuVM> Menus2 { get; set; }

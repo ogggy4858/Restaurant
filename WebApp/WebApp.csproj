@@ -206,6 +206,7 @@
     <Compile Include="Areas\Admin\Controllers\BasedController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -672,6 +673,8 @@
     <Content Include="Areas\Admin\Views\Food\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Food\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Food\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

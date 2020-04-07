@@ -97,9 +97,11 @@
     <Compile Include="DependencyExtension.cs" />
     <Compile Include="Implementation\FoodCategoryRepository.cs" />
     <Compile Include="Implementation\FoodRepository.cs" />
+    <Compile Include="Implementation\MenuRepository.cs" />
     <Compile Include="Implementation\UserRepository.cs" />
     <Compile Include="Interfaces\IFoodCategoryRepository.cs" />
     <Compile Include="Interfaces\IFoodRepository.cs" />
+    <Compile Include="Interfaces\IMenuRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -23,6 +23,8 @@ namespace Models
 
         public bool Status { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
         public virtual DesignCategory DesignCategory { get; set; }
     }
 }

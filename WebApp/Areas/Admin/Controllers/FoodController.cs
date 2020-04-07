@@ -22,7 +22,7 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Food
-        public ActionResult Index(string searchKey = "", bool? status = null, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchKey = "", bool? status = null, int page = 1, int pageSize = 6)
         {
             var list = _foodRepository.GetList(searchKey, status, page, pageSize);
             return View(list);

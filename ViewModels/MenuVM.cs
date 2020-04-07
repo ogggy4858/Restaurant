@@ -28,6 +28,8 @@ namespace ViewModels
 
         public bool Status { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
         public FoodVM Food { get; set; }
 
         public FoodVM Food1 { get; set; }
