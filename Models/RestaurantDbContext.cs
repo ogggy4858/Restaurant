@@ -41,43 +41,51 @@ namespace Models
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus)
-                .WithOptional(e => e.Food)
-                .HasForeignKey(e => e.FoodId1);
+                .WithRequired(e => e.Food)
+                .HasForeignKey(e => e.FoodId1)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus1)
-                .WithOptional(e => e.Food1)
-                .HasForeignKey(e => e.FoodId2);
+                .WithRequired(e => e.Food1)
+                .HasForeignKey(e => e.FoodId2)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus2)
-                .WithOptional(e => e.Food2)
-                .HasForeignKey(e => e.FoodId3);
+                .WithRequired(e => e.Food2)
+                .HasForeignKey(e => e.FoodId3)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus3)
-                .WithOptional(e => e.Food3)
-                .HasForeignKey(e => e.FoodId4);
+                .WithRequired(e => e.Food3)
+                .HasForeignKey(e => e.FoodId4)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus4)
-                .WithOptional(e => e.Food4)
-                .HasForeignKey(e => e.FoodId5);
+                .WithRequired(e => e.Food4)
+                .HasForeignKey(e => e.FoodId5)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus5)
-                .WithOptional(e => e.Food5)
-                .HasForeignKey(e => e.FoodId6);
+                .WithRequired(e => e.Food5)
+                .HasForeignKey(e => e.FoodId6)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus6)
-                .WithOptional(e => e.Food6)
-                .HasForeignKey(e => e.FoodId7);
+                .WithRequired(e => e.Food6)
+                .HasForeignKey(e => e.FoodId7)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus7)
-                .WithOptional(e => e.Food7)
-                .HasForeignKey(e => e.FoodId8);
+                .WithRequired(e => e.Food7)
+                .HasForeignKey(e => e.FoodId8)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Role>()
                 .HasMany(e => e.Users)

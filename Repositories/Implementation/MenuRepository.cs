@@ -392,7 +392,7 @@ namespace Repositories.Implementation
                 }
 
             })
-            .OrderByDescending(x => x.Status)
+            .OrderBy(x => x.CreateDate)
             .ToList();
         }
     }

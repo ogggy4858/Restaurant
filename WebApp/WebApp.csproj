@@ -234,6 +234,7 @@
     <Content Include="Areas\Admin\Libraries\js\foodCategory.js" />
     <Content Include="Areas\Admin\Libraries\js\jquery.min.js" />
     <Content Include="Areas\Admin\Libraries\js\main.js" />
+    <Content Include="Areas\Admin\Libraries\js\Menu.js" />
     <Content Include="Areas\Admin\Libraries\js\popper.js" />
     <Content Include="assets\css\ajax-loader.gif" />
     <Content Include="assets\css\animate.css" />
@@ -675,6 +676,8 @@
     <Content Include="Areas\Admin\Views\Food\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

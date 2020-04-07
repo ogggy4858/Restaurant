@@ -74,17 +74,26 @@
                 @Common.CommonStatus.StatusDisplay[item.Status]
             </td>
             <td>
+                <button type="button" data-id="@item.Id" class="btn btn-info">
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+                </button>
                 @if (item.Status == Common.CommonStatus.Active)
                 {
                     <button type="button" data-id="@item.Id" class="btn btn-dark">
                         @Html.ActionLink("Sửa", "Edit", new { id = item.Id })
                     </button>
                 }
-                <button type="button" data-id="@item.Id" class="btn btn-dark">
-                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
-                </button>
+                else
+                {
+                    <button type="button" data-id="@item.Id" class="btn btn-primary set-active">
+                        Áp dụng
+                    </button>
+                }
             </td>
         </tr>
     }
 
 </table>
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/Menu.js"></script>
+}
