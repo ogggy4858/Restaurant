@@ -101,16 +101,6 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-        public SelectList GetDropdown(Guid id)
-        {
-            var list = _foodRepository.GetList();
-            if (id == Guid.Empty)
-            {
-                return new SelectList(list, "Id", "Name");
-            }
-            return new SelectList(list, "Id", "Name", id);
-        }
-
         public ActionResult Details(Guid id)
         {
             var detail = _menuRepository.DetailViewModel(id);
@@ -119,45 +109,48 @@ namespace WebApp.Areas.Admin.Controllers
 
         public void SetDropdow(Guid id1, Guid id2, Guid id3, Guid id4, Guid id5, Guid id6, Guid id7, Guid id8)
         {
+            var list = _foodRepository.GetList();
+            var selectList = new SelectList(list, "Id", "Name");
+
             if (id1 == null)
-                ViewBag.FoodId1 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId1 = selectList;
             else
-                ViewBag.FoodId1 = GetDropdown(id1);
+                ViewBag.FoodId1 = new SelectList(list, "Id", "Name", id1);
 
             if (id2 == null)
-                ViewBag.FoodId2 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId2 = selectList;
             else
-                ViewBag.FoodId2 = GetDropdown(id2);
+                ViewBag.FoodId2 = new SelectList(list, "Id", "Name", id2);
 
             if (id3 == null)
-                ViewBag.FoodId3 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId3 = selectList;
             else
-                ViewBag.FoodId3 = GetDropdown(id3);
+                ViewBag.FoodId3 = new SelectList(list, "Id", "Name", id3);
 
             if (id4 == null)
-                ViewBag.FoodId4 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId4 = selectList;
             else
-                ViewBag.FoodId4 = GetDropdown(id4);
+                ViewBag.FoodId4 = new SelectList(list, "Id", "Name", id4);
 
             if (id5 == null)
-                ViewBag.FoodId5 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId5 = selectList;
             else
-                ViewBag.FoodId5 = GetDropdown(id5);
+                ViewBag.FoodId5 = new SelectList(list, "Id", "Name", id5);
 
             if (id1 == null)
-                ViewBag.FoodId6 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId6 = selectList;
             else
-                ViewBag.FoodId6 = GetDropdown(id6);
+                ViewBag.FoodId6 = new SelectList(list, "Id", "Name", id6);
 
             if (id1 == null)
-                ViewBag.FoodId7 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId7 = selectList;
             else
-                ViewBag.FoodId7 = GetDropdown(id7);
+                ViewBag.FoodId7 = new SelectList(list, "Id", "Name", id7);
 
             if (id1 == null)
-                ViewBag.FoodId8 = GetDropdown(Guid.Empty);
+                ViewBag.FoodId8 = selectList;
             else
-                ViewBag.FoodId8 = GetDropdown(id8);
+                ViewBag.FoodId8 = new SelectList(list, "Id", "Name", id8);
         }
     }
 }

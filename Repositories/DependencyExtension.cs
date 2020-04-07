@@ -18,6 +18,8 @@ namespace Repositories
             Container.RegisterType<IFoodCategoryRepository, FoodCategoryRepository>();
             Container.RegisterType<IFoodRepository, FoodRepository>();
             Container.RegisterType<IMenuRepository, MenuRepository>();
+            Container.RegisterType<IFeedBackRepository, FeedBackRepository>();
+            Container.RegisterType<IDocumentRepository, DocumentRepository>();
         }
     }
 }

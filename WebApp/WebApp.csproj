@@ -204,6 +204,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BasedController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
@@ -311,6 +312,7 @@
     <Content Include="assets\js\aos.js" />
     <Content Include="assets\js\bootstrap-datepicker.js" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\feebBack.js" />
     <Content Include="assets\js\google-map.js" />
     <Content Include="assets\js\jquery-3.2.1.min.js" />
     <Content Include="assets\js\jquery-migrate-3.0.1.min.js" />
@@ -678,6 +680,7 @@
     <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBack\Index.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

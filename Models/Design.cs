@@ -8,6 +8,12 @@ namespace Models
 
     public partial class Design
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Design()
+        {
+            Documents = new HashSet<Document>();
+        }
+
         public Guid Id { get; set; }
 
         [Required]
@@ -26,5 +32,8 @@ namespace Models
         public DateTime CreateDate { get; set; }
 
         public virtual DesignCategory DesignCategory { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

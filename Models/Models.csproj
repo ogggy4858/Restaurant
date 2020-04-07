@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Design.cs" />
     <Compile Include="DesignCategory.cs" />
+    <Compile Include="Document.cs" />
     <Compile Include="FeedBack.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FoodCategory.cs" />

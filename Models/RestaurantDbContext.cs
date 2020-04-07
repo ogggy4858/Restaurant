@@ -14,6 +14,7 @@ namespace Models
 
         public virtual DbSet<DesignCategory> DesignCategories { get; set; }
         public virtual DbSet<Design> Designs { get; set; }
+        public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<FoodCategory> FoodCategories { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
