@@ -14,6 +14,13 @@ namespace Common
         public const string ActiveDisplay = "Áp dụng";
         public const string DeleteDisplay = "Không áp dụng";
 
+        public const string ActiveFeedBack = "Hiện";
+        public const string DeleteFeedBack = "Ẩn";
+
+        public const byte FeedBackActive = 1;
+        public const byte FeedBackDelete = 0;
+        public const byte FeedBackDefault = 99;
+
         public static IDictionary<bool, string> StatusDisplay
         {
             get
@@ -22,6 +29,19 @@ namespace Common
                 {
                     { Active, ActiveDisplay },
                     { Delete, DeleteDisplay }
+                };
+            }
+        }
+
+        public static IDictionary<byte, string> StatusFeedBack
+        {
+            get
+            {
+                return new Dictionary<byte, string>
+                {
+                    { FeedBackDefault, "" },
+                    { FeedBackActive, ActiveFeedBack },
+                    { FeedBackDelete, DeleteFeedBack }
                 };
             }
         }

@@ -14,6 +14,8 @@ namespace WebApp.Controllers
         private IUserRepository _userRepository;
         private readonly IFeedBackRepository _feedBackRepository;
         private readonly IDocumentRepository _documentRepository;
+        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
+
 
         public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository)
         {
@@ -74,9 +76,12 @@ namespace WebApp.Controllers
             foreach (var item in file)
             {
                 var name = Path.GetFileName(item.FileName);
-                string path = Path.Combine(Server.MapPath("~/Areas/Admin/Libraries/images/"), name);
-                item.SaveAs(path);
-                listFileName.Add(item.FileName);
+                if (ImageExtensions.Contains(Path.GetExtension(name).ToUpperInvariant()))
+                {
+                    string path = Path.Combine(Server.MapPath("~/Areas/Admin/Libraries/images/"), name);
+                    item.SaveAs(path);
+                    listFileName.Add(item.FileName);
+                }
             }
             return listFileName;
         }

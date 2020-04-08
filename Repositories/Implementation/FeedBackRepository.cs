@@ -56,7 +56,9 @@ namespace Repositories.Implementation
 
         public void Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var detail = Detail(id);
+            detail.Status = Common.CommonStatus.Delete;
+            _context.SaveChanges();
         }
 
         public FeedBack Detail(Guid id)
@@ -106,7 +108,7 @@ namespace Repositories.Implementation
             if (!string.IsNullOrEmpty(searchKey))
             {
                 searchKey = searchKey.Trim().ToLower();
-                list = list.Where(x => x.Title.ToLower().Contains(searchKey) || x.Message.ToLower().Contains(searchKey));
+                list = list.Where(x => x.Title.ToLower().Contains(searchKey));
             }
 
             if (status == null)

@@ -231,6 +231,7 @@
     <Content Include="Areas\Admin\Libraries\css\style.css" />
     <Content Include="Areas\Admin\Libraries\images\logo.jpg" />
     <Content Include="Areas\Admin\Libraries\js\bootstrap.min.js" />
+    <Content Include="Areas\Admin\Libraries\js\feedBack.js" />
     <Content Include="Areas\Admin\Libraries\js\food.js" />
     <Content Include="Areas\Admin\Libraries\js\foodCategory.js" />
     <Content Include="Areas\Admin\Libraries\js\jquery.min.js" />
@@ -681,6 +682,9 @@
     <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
     <Content Include="Areas\Admin\Views\FeedBack\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBack\FeedBackFilter.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ErrorView.cshtml" />
+    <Content Include="Areas\Admin\Views\FeedBack\Details.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
