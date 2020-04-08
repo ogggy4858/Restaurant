@@ -50,6 +50,8 @@
     <Compile Include="FoodVM.cs" />
     <Compile Include="MenuVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleVM.cs" />
+    <Compile Include="UserVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

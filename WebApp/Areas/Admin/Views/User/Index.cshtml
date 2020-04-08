@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ViewModels.UserVM>
+
+@{
+    ViewBag.Title = "Quản lý tài khoản \"Quản trị\"";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Title{
+    @ViewBag.Title
+}
+<table class="table">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            Họ và tên
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Quyền
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                Chưa có thông tin
+            </td>
+            <td>
+                Chưa có thông tin
+            </td>
+            <td>
+                @if (!item.IsAdmin)
+                {
+                    <span>Thành viên</span>
+                }
+                else
+                {
+                    <span>Admin</span>
+                }
+            </td>
+            <td>
+                @if (!item.IsAdmin)
+                {
+                    <button class="btn btn-success btn-add-admin" data-id="@item.Id">Thêm quyền amdin</button>
+                }
+                else
+                {
+                    <button class="btn btn-danger btn-remove-admin" data-id="@item.Id">Bỏ quyền amdin</button>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/user.js"></script>
+}

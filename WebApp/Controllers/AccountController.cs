@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Repositories.Interfaces;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -17,15 +18,18 @@ namespace WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IUserRepository _userRepository;
 
         public AccountController()
         {
+            _userRepository = DependencyResolver.Current.GetService<IUserRepository>();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _userRepository = DependencyResolver.Current.GetService<IUserRepository>();
         }
 
         public ApplicationSignInManager SignInManager
@@ -156,13 +160,7 @@ namespace WebApp.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    _userRepository.SetRole(user.Id, Common.CommonStatus.CustomerRole);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

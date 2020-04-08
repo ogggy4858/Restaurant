@@ -21,6 +21,9 @@ namespace Common
         public const byte FeedBackDelete = 0;
         public const byte FeedBackDefault = 99;
 
+        public const string AdminRole = "Admin";
+        public const string CustomerRole = "Customer";
+
         public static IDictionary<bool, string> StatusDisplay
         {
             get

@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -238,6 +239,7 @@
     <Content Include="Areas\Admin\Libraries\js\main.js" />
     <Content Include="Areas\Admin\Libraries\js\Menu.js" />
     <Content Include="Areas\Admin\Libraries\js\popper.js" />
+    <Content Include="Areas\Admin\Libraries\js\user.js" />
     <Content Include="assets\css\ajax-loader.gif" />
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\aos.css" />
@@ -685,7 +687,9 @@
     <Content Include="Areas\Admin\Views\FeedBack\FeedBackFilter.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\ErrorView.cshtml" />
     <Content Include="Areas\Admin\Views\FeedBack\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
