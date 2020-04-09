@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="DependencyExtension.cs" />
     <Compile Include="Implementation\DesignCategoryRepository.cs" />
+    <Compile Include="Implementation\DesignRepository.cs" />
     <Compile Include="Implementation\DocumentRepository.cs" />
     <Compile Include="Implementation\FeedBackRepository.cs" />
     <Compile Include="Implementation\FoodCategoryRepository.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Implementation\MenuRepository.cs" />
     <Compile Include="Implementation\UserRepository.cs" />
     <Compile Include="Interfaces\IDesignCategoryRepository.cs" />
+    <Compile Include="Interfaces\IDesignRepository.cs" />
     <Compile Include="Interfaces\IDocumentRepository.cs" />
     <Compile Include="Interfaces\IFeedBackRepository.cs" />
     <Compile Include="Interfaces\IFoodCategoryRepository.cs" />

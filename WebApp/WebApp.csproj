@@ -208,6 +208,7 @@
     <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InterfaceManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -567,7 +568,6 @@
     <Content Include="scss\bootstrap\_utilities.scss" />
     <Content Include="scss\bootstrap\_variables.scss" />
     <Content Include="scss\style.scss" />
-    <Content Include="Views\Home\GGGGGGGGG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -693,8 +693,21 @@
     <Content Include="Areas\Admin\Views\DesignCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DesignCategory\Create.cshtml" />
     <Content Include="Areas\Admin\Views\DesignCategory\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\Banner.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\BannerCreate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
+    <Content Include="Views\Home\_Banner.cshtml" />
+    <Content Include="Views\Home\_Info.cshtml" />
+    <Content Include="Views\Home\_Welcome.cshtml" />
+    <Content Include="Views\Home\_Service.cshtml" />
+    <Content Include="Views\Home\_HotMenu.cshtml" />
+    <Content Include="Views\Home\_Menu.cshtml" />
+    <Content Include="Views\Home\_Image.cshtml" />
+    <Content Include="Views\Home\_SynthesizeInfo.cshtml" />
+    <Content Include="Views\Home\_FoodCategory.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Home\_Blog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

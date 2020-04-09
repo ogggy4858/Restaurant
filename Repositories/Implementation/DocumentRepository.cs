@@ -37,6 +37,44 @@ namespace Repositories.Implementation
             _context.SaveChanges();
         }
 
+        public void CreateForDesign(List<string> listFileName, Guid designId)
+        {
+            if (listFileName == null || designId == null)
+            {
+                throw new NullReferenceException();
+            }
+            foreach (var item in listFileName)
+            {
+                Document docu = new Document()
+                {
+                    DesignId = designId,
+                    Stauts = Common.CommonStatus.Active,
+                    FileName = item
+                };
+
+                _context.Documents.Add(docu);
+            }
+            _context.SaveChanges();
+        }
+
+        public void CreateForDesign(string fileName, Guid designId)
+        {
+            if (fileName == null || designId == null)
+            {
+                throw new NullReferenceException();
+            }
+
+            Document docu = new Document()
+            {
+                DesignId = designId,
+                Stauts = Common.CommonStatus.Active,
+                FileName = fileName
+            };
+
+            _context.Documents.Add(docu);
+            _context.SaveChanges();
+        }
+
         public void CreateForFeedBack(string fileName, Guid feedBackId)
         {
             throw new NotImplementedException();

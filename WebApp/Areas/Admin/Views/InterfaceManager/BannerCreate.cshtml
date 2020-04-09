@@ -1,0 +1,54 @@
+﻿@model ViewModels.DesignVM
+
+@{
+    ViewBag.Title = "Quản lý giao diện: Banner";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Title{
+    @ViewBag.Title
+}
+@using (Html.BeginForm("BannerCreate", "InterfaceManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <span class="col-md-2">Welcome</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quote, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Tiêu đề</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Nội dung</span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Welcome</span>
+            <div class="col-md-10">
+                <input type="file" name="image">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "Banner")
+            </div>
+        </div>
+    </div>
+}
+

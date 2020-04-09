@@ -10,5 +10,7 @@ namespace Repositories.Interfaces
     {
         void CreateForFeedBack(List<string> fileName, Guid feedBackId);
         void CreateForFeedBack(string fileName, Guid feedBackId);
+        void CreateForDesign(List<string> listFileName, Guid designId);
+        void CreateForDesign(string fileName, Guid designId);
     }
 }

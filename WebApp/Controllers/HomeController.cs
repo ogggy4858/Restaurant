@@ -14,14 +14,16 @@ namespace WebApp.Controllers
         private IUserRepository _userRepository;
         private readonly IFeedBackRepository _feedBackRepository;
         private readonly IDocumentRepository _documentRepository;
+        private readonly IDesignRepository _designRepository;
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
 
-        public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository)
+        public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository, IDesignRepository designRepository)
         {
             _userRepository = userRepository;
             _feedBackRepository = feedBackRepository;
             _documentRepository = documentRepository;
+            _designRepository = designRepository;
         }
 
         public ActionResult Index()
@@ -35,6 +37,144 @@ namespace WebApp.Controllers
             ViewBag.Message = "Your application description page.";
 
             return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult Banner()
+        {
+            try
+            {
+                var model = _designRepository.DisplayBanner("Banner");
+                return PartialView("_Banner", model);
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Banner", new DesignVM());
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Info()
+        {
+            try
+            {
+                return PartialView("_Info");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Info");
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Welcome()
+        {
+            try
+            {
+                return PartialView("_Welcome");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Welcome");
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Service()
+        {
+            try
+            {
+                return PartialView("_Service");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Service");
+            }
+        }
+
+
+        [ChildActionOnly]
+        public ActionResult HotMenu()
+        {
+            try
+            {
+                return PartialView("_HotMenu");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_HotMenu");
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            try
+            {
+                return PartialView("_Menu");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Menu");
+
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Image()
+        {
+            try
+            {
+                return PartialView("_Image");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Image");
+
+            }
+        }
+
+
+        [ChildActionOnly]
+        public ActionResult SynthesizeInfo()
+        {
+            try
+            {
+                return PartialView("_SynthesizeInfo");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_SynthesizeInfo");
+
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult FoodCategory()
+        {
+            try
+            {
+                return PartialView("_FoodCategory");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_FoodCategory");
+
+            }
+        }
+
+        [ChildActionOnly]
+        public ActionResult Blog()
+        {
+            try
+            {
+                return PartialView("_Blog");
+            }
+            catch (Exception ex)
+            {
+                return PartialView("_Blog");
+
+            }
         }
 
         [HttpGet]

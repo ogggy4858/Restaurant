@@ -21,6 +21,7 @@ namespace Repositories
             Container.RegisterType<IFeedBackRepository, FeedBackRepository>();
             Container.RegisterType<IDocumentRepository, DocumentRepository>();
             Container.RegisterType<IDesignCategoryRepository, DesignCategoryRepository>();
+            Container.RegisterType<IDesignRepository, DesignRepository>();
         }
     }
 }
