@@ -20,6 +20,7 @@ namespace Repositories
             Container.RegisterType<IMenuRepository, MenuRepository>();
             Container.RegisterType<IFeedBackRepository, FeedBackRepository>();
             Container.RegisterType<IDocumentRepository, DocumentRepository>();
+            Container.RegisterType<IDesignCategoryRepository, DesignCategoryRepository>();
         }
     }
 }
