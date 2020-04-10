@@ -18,7 +18,7 @@ namespace Repositories.Implementation
             _context = context;
         }
 
-        public Guid Create(DesignVM model, string categoryName)
+        public Guid Create(DesignVM model, string categoryName, bool isDelete = true)
         {
             if (model == null)
             {
@@ -26,7 +26,10 @@ namespace Repositories.Implementation
             }
 
             var designCategoryId = GetDesignCategoryIdByName(categoryName);
-            DeleteByCategory(designCategoryId);
+            if (isDelete)
+            {
+                DeleteByCategory(designCategoryId);
+            }
             var en = new Design()
             {
                 Content = model.Content,
@@ -47,45 +50,62 @@ namespace Repositories.Implementation
         public void DeleteByCategory(long designCategoryId)
         {
             var list = _context.Designs.Where(x => x.DesignCategory.Id == designCategoryId).ToList();
-            foreach(var item in list)
+            foreach (var item in list)
             {
                 item.Status = Common.CommonStatus.Delete;
             }
+            _context.SaveChanges();
         }
 
-        public List<DesignVM> GetList(string categoryName)
+        public void DeleteByCategory(string designCategoryName)
         {
-            return _context.Designs
-                .Where(x => x.DesignCategory.Name == categoryName)
-                .Select(x => new DesignVM()
+            var list = _context.Designs.Where(x => x.DesignCategory.Name == designCategoryName).ToList();
+            foreach (var item in list)
             {
-                Content = x.Content,
-                CreateDate = x.CreateDate,
-                DesignCategoryId = x.DesignCategoryId,
-                Id = x.Id,
-                Quote = x.Quote,
-                Status = x.Status,
-                Title = x.Title,
-                DesignCategory = new DesignCategoryVM()
+                item.Status = Common.CommonStatus.Delete;
+            }
+            _context.SaveChanges();
+        }
+
+        public List<DesignVM> GetList(string categoryName, bool? status = null)
+        {
+            var listQuery = _context.Designs
+                .Where(x => x.DesignCategory.Name == categoryName);
+
+            if(status != null)
+            {
+                listQuery = listQuery.Where(x => x.Status == status);
+            }
+
+            return listQuery.Select(x => new DesignVM()
                 {
-                    Status = x.DesignCategory.Status,
-                    Id = x.DesignCategory.Id,
-                    Name = x.DesignCategory.Name
-                },
-                Documents = x.Documents.Select(a => new DocumentVM()
-                {
-                    Id = a.Id,
-                    DesignId = a.DesignId,
-                    FileName = a.FileName,
-                    FeedBackId = a.FeedBackId,
-                    Stauts = a.Stauts
-                }).ToList()
-            }).ToList();
+                    Content = x.Content,
+                    CreateDate = x.CreateDate,
+                    DesignCategoryId = x.DesignCategoryId,
+                    Id = x.Id,
+                    Quote = x.Quote,
+                    Status = x.Status,
+                    Title = x.Title,
+                    DesignCategory = new DesignCategoryVM()
+                    {
+                        Status = x.DesignCategory.Status,
+                        Id = x.DesignCategory.Id,
+                        Name = x.DesignCategory.Name
+                    },
+                    Documents = x.Documents.Select(a => new DocumentVM()
+                    {
+                        Id = a.Id,
+                        DesignId = a.DesignId,
+                        FileName = a.FileName,
+                        FeedBackId = a.FeedBackId,
+                        Stauts = a.Stauts
+                    }).ToList()
+                }).ToList();
         }
 
         public DesignVM DisplayBanner(string categoryName)
         {
-            return _context.Designs
+            var viewModel = _context.Designs
                 .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
                 .Select(x => new DesignVM()
                 {
@@ -111,6 +131,69 @@ namespace Repositories.Implementation
                         Stauts = a.Stauts
                     }).ToList()
                 }).FirstOrDefault();
+            if (viewModel == null)
+            {
+                return new DesignVM()
+                {
+                    Quote = "Welcome",
+                    Title = "Chào mừng thực khách đến với nhà hàng",
+                    Content = ""
+                };
+            }
+
+            return viewModel;
+        }
+
+        public List<DesignVM> DisplayInfo(string categoryName)
+        {
+            var viewModel = _context.Designs
+               .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+               .Select(x => new DesignVM()
+               {
+                   Content = x.Content,
+                   CreateDate = x.CreateDate,
+                   DesignCategoryId = x.DesignCategoryId,
+                   Id = x.Id,
+                   Quote = x.Quote,
+                   Status = x.Status,
+                   Title = x.Title,
+                   DesignCategory = new DesignCategoryVM()
+                   {
+                       Status = x.DesignCategory.Status,
+                       Id = x.DesignCategory.Id,
+                       Name = x.DesignCategory.Name
+                   },
+                   Documents = x.Documents.Select(a => new DocumentVM()
+                   {
+                       Id = a.Id,
+                       DesignId = a.DesignId,
+                       FileName = a.FileName,
+                       FeedBackId = a.FeedBackId,
+                       Stauts = a.Stauts
+                   }).ToList()
+               }).ToList();
+            if (viewModel == null)
+            {
+                return new List<DesignVM>()
+                {
+                    new DesignVM()
+                    {
+                        Title = "0999999113",
+                        Content = "Call me baby"
+                    },
+                    new DesignVM()
+                    {
+                        Title = "127 Hòa Mã",
+                        Content = "Quận Sao Hỏa, Hà Nội, Việt Nam"
+                    },
+                    new DesignVM()
+                    {
+                        Title = "Open Monday-Sunday",
+                        Content = "10:00am - 10:00pm"
+                    },
+                };
+            }
+            return viewModel;
         }
 
         private long GetDesignCategoryIdByName(string categoryName)
@@ -122,12 +205,14 @@ namespace Repositories.Implementation
 
             var detail = _context.DesignCategories.FirstOrDefault(x => x.Name == categoryName);
 
-            if(detail == null)
+            if (detail == null)
             {
                 throw new NullReferenceException();
             }
 
             return detail.Id;
         }
+
+
     }
 }

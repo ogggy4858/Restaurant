@@ -87,6 +87,71 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult Info()
+        {
+            var list = _designRepository.GetList("Info", true);
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult InfoCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult InfoCreate(string phone, string phoneDescription, string address, string addressDescription, string openHour, string openHourDescription)
+        {
+            ViewBag.Phone = phone;
+            ViewBag.PhoneDescription = phoneDescription;
+            ViewBag.Address = address;
+            ViewBag.AddressDescription = addressDescription;
+            ViewBag.OpenHour = openHour;
+            ViewBag.OpenHourDescription = openHourDescription;
+
+            try
+            {
+                if(string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(phoneDescription) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(addressDescription) || string.IsNullOrWhiteSpace(openHour) || string.IsNullOrWhiteSpace(openHourDescription))
+                {
+                    ModelState.AddModelError("", "Dữ liệu không được để trống");
+                    return View();
+                }
+
+                if(phone.Length > 200)
+                {
+                    ModelState.AddModelError("", "Số điện thoại không được quá dài");
+                    return View();
+                }
+
+
+                if (address.Length > 200)
+                {
+                    ModelState.AddModelError("", "Địa chỉ không được quá dài");
+                    return View();
+                }
+
+
+                if (openHour.Length > 200)
+                {
+                    ModelState.AddModelError("", "Giờ mở của không được quá dài");
+                    return View();
+                }
+
+                _designRepository.DeleteByCategory("Info");
+                _designRepository.Create(new DesignVM() { Title = phone, Content = phoneDescription }, "Info", false);
+                _designRepository.Create(new DesignVM() { Title = address, Content = addressDescription }, "Info", false);
+                _designRepository.Create(new DesignVM() { Title = openHour, Content = openHourDescription }, "Info", false);
+
+                return RedirectToAction("Info");
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, vui òng thử lại sau");
+                return View();
+            }
+        }
+
+
         private List<string> SaveImage(HttpPostedFileBase[] file)
         {
             List<string> listFileName = new List<string>();

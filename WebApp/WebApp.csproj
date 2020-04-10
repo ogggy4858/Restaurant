@@ -695,6 +695,8 @@
     <Content Include="Areas\Admin\Views\DesignCategory\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\Banner.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\BannerCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\Info.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\InfoCreate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Home\_Banner.cshtml" />

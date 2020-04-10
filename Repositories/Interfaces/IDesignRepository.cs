@@ -10,8 +10,9 @@ namespace Repositories.Interfaces
     public interface IDesignRepository
     {
         // banner
-        Guid Create(DesignVM model, string categoryName);
-        List<DesignVM> GetList(string categoryName);
+        Guid Create(DesignVM model, string categoryName, bool isDelete = false);
+        List<DesignVM> GetList(string categoryName, bool? status = null);
         DesignVM DisplayBanner(string categoryName);
+        void DeleteByCategory(string designCategoryName);
     }
 }
