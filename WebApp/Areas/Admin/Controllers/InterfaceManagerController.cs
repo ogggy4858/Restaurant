@@ -151,6 +151,148 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult Welcome()
+        {
+            var list = _designRepository.GetList("Welcome");
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult WelcomeCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult WelcomeCreate(DesignVM model, HttpPostedFileBase image)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(model.Title))
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được để trống");
+                    return View(model);
+                }
+
+                if (string.IsNullOrEmpty(model.Content))
+                {
+                    ModelState.AddModelError("", "Nội dung không được để trống");
+                    return View(model);
+                }
+
+                if (image == null)
+                {
+                    ModelState.AddModelError("", "Hình ảnh không được để trống");
+                    return View(model);
+                }
+
+                if (model.Title.Length > 50)
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được quá 200 ký tự");
+                    return View(model);
+                }
+
+                var bannerId = _designRepository.Create(model, "Welcome", true);
+                string fileName = SaveImage(image);
+                _documentRepository.CreateForDesign(fileName, bannerId);
+                return RedirectToAction("Welcome");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, Vui lòng thử lại sau");
+                return View(model);
+            }
+        }
+
+        public ActionResult Service()
+        {
+            var list = _designRepository.GetList("Service", true);
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult ServiceCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ServiceCreate(string title, string description, string title1, string description1, string title2, string description2, string title3, string description3)
+        {
+            ViewBag.TitleMain = title;
+            ViewBag.DescriptionMain = description;
+            ViewBag.Title1 = title1;
+            ViewBag.Description1 = description1;
+            ViewBag.Title2 = title2;
+            ViewBag.Description2 = description2;
+            ViewBag.Title3 = title3;
+            ViewBag.Description3 = description3;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(title1) || string.IsNullOrWhiteSpace(description1) || string.IsNullOrWhiteSpace(title2) || string.IsNullOrWhiteSpace(description2) || string.IsNullOrWhiteSpace(title3) || string.IsNullOrWhiteSpace(description3))
+                {
+                    ModelState.AddModelError("", "Dữ liệu không được để trống");
+                    return View();
+                }
+
+                if (title.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được quá dài");
+                    return View();
+                }
+
+
+                if (title1.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề 1 không được quá dài");
+                    return View();
+                }
+
+                if (title2.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề 2 không được quá dài");
+                    return View();
+                }
+
+                if (title3.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề 3 không được quá dài");
+                    return View();
+                }
+
+                _designRepository.DeleteByCategory("Service");
+                _designRepository.Create(new DesignVM() { Title = title, Content = description }, "Service", false);
+                _designRepository.Create(new DesignVM() { Title = title1, Content = description1 }, "Service", false);
+                _designRepository.Create(new DesignVM() { Title = title2, Content = description2 }, "Service", false);
+                _designRepository.Create(new DesignVM() { Title = title3, Content = description3 }, "Service", false);
+
+                return RedirectToAction("Service");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, vui òng thử lại sau");
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public JsonResult Active(Guid id, string categoryName)
+        {
+            try
+            {
+                if(id == null || id == Guid.Empty)
+                {
+                    return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
+                }
+                _designRepository.SetActive(id, categoryName);
+                return Json(new { Status = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch(Exception ex)
+            {
+                return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         private List<string> SaveImage(HttpPostedFileBase[] file)
         {

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ViewModels.DesignVM>
 
 @{
-    ViewBag.Title = "Quản lý giao diện: Banner";
+    ViewBag.Title = "Quản lý giao diện: Welcome";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
@@ -9,11 +9,10 @@
     @ViewBag.Title
 }
 
-@Html.ActionLink("Thêm mới", "BannerCreate")
+@Html.ActionLink("Thêm mới", "WelcomeCreate")
 
 <table class="table">
     <tr>
-        <th>Welcome</th>
         <th style="width: 250px">Tiêu đề</th>
         <th style="width: 450px">Nội dung</th>
         <th>Hình ảnh</th>
@@ -23,7 +22,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Quote</td>
             <td>@item.Title</td>
             <td>@item.Content</td>
             <td>
@@ -41,12 +39,11 @@
             <td>
                 @if (item.Status != Common.CommonStatus.Active)
                 {
-                    <button data-id="@item.Id" class="btn btn-primary btn-banner-add">Áp dụng</button>
+                    <button data-id="@item.Id" class="btn btn-primary btn-welcome-add">Áp dụng</button>
                 }
             </td>
         </tr>
     }
-
 </table>
 
 @section scripts{

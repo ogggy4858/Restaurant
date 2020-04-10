@@ -49,7 +49,12 @@ namespace WebApp.Controllers
             }
             catch (Exception ex)
             {
-                return PartialView("_Banner", new DesignVM());
+                return PartialView("_Banner", new DesignVM()
+                {
+                    Quote = "Welcome",
+                    Title = "Chào mừng thực khách đến với nhà hàng",
+                    Content = ""
+                });
             }
         }
 
@@ -58,11 +63,17 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_Info");
+                var list = _designRepository.DisplayInfo("Info");
+                return PartialView("_Info", list);
             }
             catch (Exception ex)
             {
-                return PartialView("_Info");
+                return PartialView("_Info", new List<DesignVM>()
+                {
+                    new DesignVM(){},
+                    new DesignVM(){},
+                    new DesignVM(){},
+                });
             }
         }
 
@@ -71,11 +82,17 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_Welcome");
+                var ob = _designRepository.DisplayWelcome("Welcome");
+                return PartialView("_Welcome", ob);
+
             }
             catch (Exception ex)
             {
-                return PartialView("_Welcome");
+                return PartialView("_Welcome", new DesignVM()
+                {
+                    Title = "Chào mừng thực khách đến với nhà hàng",
+                    Content = "Để tránh tình trạng hết bàn/bàn view sông đẹp trong những dịp quan trọng, cuối tuần, lễ tết, Khiem-Baba đã tạo ra một hệ thống tự đặt bàn trực tuyến dành cho bạn. Chỉ cần điền số điện thoại là ngay lập tức bạn đã bàn không lo hết mà còn được cả vị trí view sông đẹp. Chưa hết đâu, bạn còn nhận được giảm 10% tổng bill khi đặt trực tuyến nữa. Còn chân chừ gì mà không gọi mấy đứa cạ cứng đến chiến và thưởng thức view sông Sài Gòn có một không hai?"
+                });
             }
         }
 
@@ -84,11 +101,34 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_Service");
+                var list = _designRepository.DisplayService("Service");
+                return PartialView("_Service", list);
             }
             catch (Exception ex)
             {
-                return PartialView("_Service");
+                return PartialView("_Service", new List<DesignVM>()
+                {
+                     new DesignVM()
+                     {
+                        Title = "Dịch vụ của chúng tôi",
+                        Content = "Đến với nhà hàng, bạn sẽ được trải nghiệm dịch vụ tuyệt vời của chúng tôi"
+                     },
+                    new DesignVM()
+                    {
+                        Title = "Thực phẩm sạch",
+                        Content = "Thực phẩm hoàn toàn từ tự nhiên, không chất bảo quản"
+                    },
+                    new DesignVM()
+                    {
+                        Title = "Ship đồ ăn nhanh",
+                        Content = "Chúng tôi có một đội dân tổ riêng"
+                    },
+                    new DesignVM()
+                    {
+                        Title = "Hoạt động 24h / ngày",
+                        Content = "Gọi cho chúng tôi ngay"
+                    },
+                });
             }
         }
 

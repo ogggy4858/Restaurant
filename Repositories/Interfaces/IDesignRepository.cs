@@ -14,5 +14,9 @@ namespace Repositories.Interfaces
         List<DesignVM> GetList(string categoryName, bool? status = null);
         DesignVM DisplayBanner(string categoryName);
         void DeleteByCategory(string designCategoryName);
+        List<DesignVM> DisplayInfo(string categoryName);
+        DesignVM DisplayWelcome(string categoryName);
+        void SetActive(Guid designId, string categoryName);
+        List<DesignVM> DisplayService(string categoryName);
     }
 }
