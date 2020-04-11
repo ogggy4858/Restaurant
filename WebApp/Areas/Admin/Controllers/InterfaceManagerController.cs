@@ -9,7 +9,7 @@ using ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class InterfaceManagerController : Controller
+    public class InterfaceManagerController : BasedController
     {
         private readonly IDesignRepository _designRepository;
         private readonly IDocumentRepository _documentRepository;

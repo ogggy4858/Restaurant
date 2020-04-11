@@ -100,5 +100,16 @@ namespace Repositories.Implementation
             }
             return role.Id;
         }
+
+        public bool IsAdmin(string email)
+        {
+            SqlParameter[] param = new SqlParameter[]
+            {
+                new SqlParameter("@email", email)
+            };
+
+            var check = _context.Database.SqlQuery<bool>("GetRoleByEmail @email", param).FirstOrDefault();
+            return check;
+        }
     }
 }

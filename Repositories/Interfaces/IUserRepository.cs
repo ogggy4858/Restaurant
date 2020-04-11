@@ -12,5 +12,6 @@ namespace Repositories.Interfaces
         List<UserVM> GetList();
         void SetRole(string userId, string roleName);
         void RemoveRole(string userId);
+        bool IsAdmin(string email);
     }
 }

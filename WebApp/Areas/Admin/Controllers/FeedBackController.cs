@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class FeedBackController : Controller
+    public class FeedBackController : BasedController
     {
         private readonly IFeedBackRepository _feedBackRepository;
 

@@ -8,7 +8,7 @@ using ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class FoodCategoryController : Controller
+    public class FoodCategoryController : BasedController
     {
         private readonly IFoodCategoryRepository _foodCategoryRepository;
 

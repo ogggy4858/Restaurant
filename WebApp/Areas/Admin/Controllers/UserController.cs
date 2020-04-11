@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BasedController
     {
         private readonly IUserRepository _userRepository;
 

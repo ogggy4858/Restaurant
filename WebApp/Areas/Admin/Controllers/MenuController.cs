@@ -8,7 +8,7 @@ using ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class MenuController : Controller
+    public class MenuController : BasedController
     {
         private readonly IMenuRepository _menuRepository;
         private readonly IFoodRepository _foodRepository;

@@ -9,7 +9,7 @@ using ViewModels;
 
 namespace WebApp.Areas.Admin.Controllers
 {
-    public class DesignCategoryController : Controller
+    public class DesignCategoryController : BasedController
     {
         private readonly IDesignCategoryRepository _designCategoryRepository;
 
