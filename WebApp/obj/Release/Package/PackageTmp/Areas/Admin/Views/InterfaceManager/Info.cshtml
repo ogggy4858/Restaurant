@@ -1,0 +1,42 @@
+﻿@model List<ViewModels.DesignVM>
+
+@{
+    ViewBag.Title = "Quản lý giao diện: Info";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+@Html.ActionLink("Thêm mới", "InfoCreate")
+
+<table class="table">
+    <tr>
+        <th>Số điện thoại / Mô tả</th>
+        <th>Địa chỉ / Mô tả</th>
+        <th>Giờ mở của / Mô tả</th>
+        <th>Status</th>
+    </tr>
+
+    <tr>
+        @if (Model.Count != 0)
+        {
+            <td>
+                @Model[0].Title <br />
+                @Model[0].Content
+            </td>
+            <td>
+                @Model[1].Title <br />
+                @Model[1].Content
+            </td>
+
+            <td>
+                @Model[2].Title <br />
+                @Model[2].Content
+            </td>
+
+            <td>Đang được áp dụng</td>
+        }
+    </tr>
+</table>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ViewModels.FeedBackVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý FeedBack";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+@RenderPage("FeedBackFilter.cshtml")
+
+<table class="table">
+    <tr>
+        <th style="width: 170px">
+            Tên khách hàng
+        </th>
+        <th style="width: 170px">
+            Số điện thoại
+        </th>
+        <th>
+            Tiêu đề
+        </th>
+        <th style="width: 450px;">
+            Nội dung
+        </th>
+        <th style="width: 100px;">
+            Số ảnh
+        </th>
+        <th>
+            Thời gian
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.CustomerName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Phone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Message)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ListFileName.Count)
+        ảnh
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreateDateDisplay)
+    </td>
+    <td>
+        @Common.CommonStatus.StatusFeedBack[Convert.ToByte(item.Status)]
+    </td>
+    <td>
+        <button type="button" class="btn btn-success">
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+        </button>
+        <button type="button" data-id="@item.Id" class="btn btn-danger btnDisable">Ẩn</button>
+    </td>
+</tr>
+    }
+</table>
+
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, ViewBag.SearchKey, ViewBag.Status }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
+
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/feedBack.js"></script>
+    }

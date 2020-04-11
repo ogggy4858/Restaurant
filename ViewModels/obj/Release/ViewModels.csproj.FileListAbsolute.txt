@@ -1,0 +1,8 @@
+F:\khiem-restaurant\Restaurant\ViewModels\bin\Release\ViewModels.dll
+F:\khiem-restaurant\Restaurant\ViewModels\bin\Release\ViewModels.pdb
+F:\khiem-restaurant\Restaurant\ViewModels\bin\Release\Common.dll
+F:\khiem-restaurant\Restaurant\ViewModels\bin\Release\Common.pdb
+F:\khiem-restaurant\Restaurant\ViewModels\obj\Release\ViewModels.csprojAssemblyReference.cache
+F:\khiem-restaurant\Restaurant\ViewModels\obj\Release\ViewModels.csproj.CopyComplete
+F:\khiem-restaurant\Restaurant\ViewModels\obj\Release\ViewModels.dll
+F:\khiem-restaurant\Restaurant\ViewModels\obj\Release\ViewModels.pdb

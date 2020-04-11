@@ -715,6 +715,7 @@
     <Content Include="Views\Home\_FoodCategory.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\_Blog.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

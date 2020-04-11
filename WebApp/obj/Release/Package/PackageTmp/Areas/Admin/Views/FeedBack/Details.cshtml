@@ -1,0 +1,61 @@
+﻿@model ViewModels.FeedBackVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+<div class="row">
+    <div class="col-md-2">
+        <h4>Tên khách hàng</h4>
+    </div>
+    <div class="col-md-2">
+        @Model.CustomerName
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-2">
+        <h4>Số điện thoại</h4>
+    </div>
+    <div class="col-md-2">
+        @Model.Phone
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-2">
+        <h4>Tiêu đề</h4>
+    </div>
+    <div class="col-md-10">
+        @Model.Title
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-2">
+        <h4>Nội dung</h4>
+    </div>
+    <div class="col-md-10">
+        @Model.Message
+    </div>
+</div>
+<hr>
+<div class="row">
+    @foreach (var item in Model.ListFileName)
+    {
+        <div class="col-md-2">
+            <img src="~/Areas/Admin/Libraries/images/@item" style="width: 200px; height: auto">
+        </div>
+    }
+</div>
+
+<div class="row" style="padding-top: 20px">
+    <p>
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>
