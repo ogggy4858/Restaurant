@@ -217,6 +217,7 @@
     <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HotMenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\InterfaceManagerController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
@@ -248,6 +249,7 @@
     <Content Include="Areas\Admin\Libraries\js\feedBack.js" />
     <Content Include="Areas\Admin\Libraries\js\food.js" />
     <Content Include="Areas\Admin\Libraries\js\foodCategory.js" />
+    <Content Include="Areas\Admin\Libraries\js\hotMenu.js" />
     <Content Include="Areas\Admin\Libraries\js\interfaceManager.js" />
     <Content Include="Areas\Admin\Libraries\js\jquery.min.js" />
     <Content Include="Areas\Admin\Libraries\js\main.js" />
@@ -713,6 +715,14 @@
     <Content Include="Areas\Admin\Views\InterfaceManager\WelcomeCreate.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\Service.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\ServiceCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\HotMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\HotMenuCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\Menu.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\MenuCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\HotMenu\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HotMenu\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HotMenu\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HotMenu\Details.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Home\_Banner.cshtml" />

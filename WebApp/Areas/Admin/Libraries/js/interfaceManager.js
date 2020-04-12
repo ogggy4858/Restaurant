@@ -12,6 +12,20 @@
             Active(id, "Welcome");
         }
     });
+
+    $('.btn-hotmenu-add').on('click', function () {
+        if (confirm("Bạn muốn áp dụng bản ghi này")) {
+            var id = $(this).data('id');
+            Active(id, "HotMenu");
+        }
+    });
+
+    $('.btn-menu-add').on('click', function() {
+        if (confirm("Bạn muốn áp dụng bản ghi này")) {
+            var id = $(this).data('id');
+            Active(id, "Menu");
+        }
+    });
 });
 
 

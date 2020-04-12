@@ -48,6 +48,7 @@
     <Compile Include="FeedBackVM.cs" />
     <Compile Include="FoodCategoryVM.cs" />
     <Compile Include="FoodVM.cs" />
+    <Compile Include="HotMenuVM.cs" />
     <Compile Include="MenuVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleVM.cs" />

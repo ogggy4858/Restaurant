@@ -59,6 +59,7 @@
     <Compile Include="FeedBack.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="FoodCategory.cs" />
+    <Compile Include="HotMenu.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestaurantDbContext.cs" />

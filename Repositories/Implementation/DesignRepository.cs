@@ -299,6 +299,86 @@ namespace Repositories.Implementation
             return viewModel;
         }
 
+        public DesignVM DisplayHotMenu(string categoryName)
+        {
+            var viewModel = _context.Designs
+                .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+                .Select(x => new DesignVM()
+                {
+                    Content = x.Content,
+                    CreateDate = x.CreateDate,
+                    DesignCategoryId = x.DesignCategoryId,
+                    Id = x.Id,
+                    Quote = x.Quote,
+                    Status = x.Status,
+                    Title = x.Title,
+                    DesignCategory = new DesignCategoryVM()
+                    {
+                        Status = x.DesignCategory.Status,
+                        Id = x.DesignCategory.Id,
+                        Name = x.DesignCategory.Name
+                    },
+                    Documents = x.Documents.Select(a => new DocumentVM()
+                    {
+                        Id = a.Id,
+                        DesignId = a.DesignId,
+                        FileName = a.FileName,
+                        FeedBackId = a.FeedBackId,
+                        Stauts = a.Stauts
+                    }).ToList()
+                }).FirstOrDefault();
+            if (viewModel == null)
+            {
+                return new DesignVM()
+                {
+                    Title = "Hot Menu",
+                    Content = "Những món ăn được nhiều người ưa chuộng nhất"
+                };
+            }
+
+            return viewModel;
+        }
+
+        public DesignVM DisplayMenu(string categoryName)
+        {
+            var viewModel = _context.Designs
+                .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+                .Select(x => new DesignVM()
+                {
+                    Content = x.Content,
+                    CreateDate = x.CreateDate,
+                    DesignCategoryId = x.DesignCategoryId,
+                    Id = x.Id,
+                    Quote = x.Quote,
+                    Status = x.Status,
+                    Title = x.Title,
+                    DesignCategory = new DesignCategoryVM()
+                    {
+                        Status = x.DesignCategory.Status,
+                        Id = x.DesignCategory.Id,
+                        Name = x.DesignCategory.Name
+                    },
+                    Documents = x.Documents.Select(a => new DocumentVM()
+                    {
+                        Id = a.Id,
+                        DesignId = a.DesignId,
+                        FileName = a.FileName,
+                        FeedBackId = a.FeedBackId,
+                        Stauts = a.Stauts
+                    }).ToList()
+                }).FirstOrDefault();
+            if (viewModel == null)
+            {
+                return new DesignVM()
+                {
+                    Title = "Menu",
+                    Content = "Món ăn hấp dẫn của nhà hàng"
+                };
+            }
+
+            return viewModel;
+        }
+
         private Design Detail(Guid id)
         {
             if (id == null || id == Guid.Empty)

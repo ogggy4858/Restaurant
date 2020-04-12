@@ -111,13 +111,13 @@ namespace WebApp.Areas.Admin.Controllers
 
             try
             {
-                if(string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(phoneDescription) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(addressDescription) || string.IsNullOrWhiteSpace(openHour) || string.IsNullOrWhiteSpace(openHourDescription))
+                if (string.IsNullOrWhiteSpace(phone) || string.IsNullOrWhiteSpace(phoneDescription) || string.IsNullOrWhiteSpace(address) || string.IsNullOrWhiteSpace(addressDescription) || string.IsNullOrWhiteSpace(openHour) || string.IsNullOrWhiteSpace(openHourDescription))
                 {
                     ModelState.AddModelError("", "Dữ liệu không được để trống");
                     return View();
                 }
 
-                if(phone.Length > 200)
+                if (phone.Length > 200)
                 {
                     ModelState.AddModelError("", "Số điện thoại không được quá dài");
                     return View();
@@ -144,7 +144,7 @@ namespace WebApp.Areas.Admin.Controllers
 
                 return RedirectToAction("Info");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Có lỗi sảy ra, vui òng thử lại sau");
                 return View();
@@ -276,19 +276,123 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult HotMenu()
+        {
+            var list = _designRepository.GetList("HotMenu");
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult HotMenuCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult HotMenuCreate(DesignVM model)
+        {
+            try
+            {
+                if (model == null)
+                {
+                    ModelState.AddModelError("", "Có lỗi xảy ra, vui lòng thử lại sau");
+                    return View(model);
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Title))
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được để trống");
+                    return View(model);
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Content))
+                {
+                    ModelState.AddModelError("", "Nội dung không được để trống");
+                    return View(model);
+                }
+
+                if (model.Title.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được quá dài");
+                    return View(model);
+                }
+
+                _designRepository.Create(model, "HotMenu");
+                return RedirectToAction("HotMenu");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra, vui lòng thử lại sau");
+                return View(model);
+            }
+        }
+
+        public ActionResult Menu()
+        {
+            var list = _designRepository.GetList("Menu");
+            return View(list);
+        }
+
+
+        [HttpGet]
+        public ActionResult MenuCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MenuCreate(DesignVM model)
+        {
+            try
+            {
+                if (model == null)
+                {
+                    ModelState.AddModelError("", "Có lỗi xảy ra, vui lòng thử lại sau");
+                    return View(model);
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Title))
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được để trống");
+                    return View(model);
+                }
+
+                if (string.IsNullOrWhiteSpace(model.Content))
+                {
+                    ModelState.AddModelError("", "Nội dung không được để trống");
+                    return View(model);
+                }
+
+                if (model.Title.Length > 200)
+                {
+                    ModelState.AddModelError("", "Tiêu đề không được quá dài");
+                    return View(model);
+                }
+
+                _designRepository.Create(model, "Menu");
+                return RedirectToAction("Menu");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi xảy ra, vui lòng thử lại sau");
+                return View(model);
+            }
+        }
+
+
         [HttpPost]
         public JsonResult Active(Guid id, string categoryName)
         {
             try
             {
-                if(id == null || id == Guid.Empty)
+                if (id == null || id == Guid.Empty)
                 {
                     return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
                 }
                 _designRepository.SetActive(id, categoryName);
                 return Json(new { Status = true }, JsonRequestBehavior.AllowGet);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
             }

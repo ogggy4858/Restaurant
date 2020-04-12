@@ -18,6 +18,7 @@ namespace Models
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<FoodCategory> FoodCategories { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
+        public virtual DbSet<HotMenu> HotMenus { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UserClaim> UserClaims { get; set; }
@@ -39,6 +40,42 @@ namespace Models
             modelBuilder.Entity<Food>()
                 .Property(e => e.Price)
                 .HasPrecision(18, 0);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus)
+                .WithRequired(e => e.Food)
+                .HasForeignKey(e => e.FoodId1)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus1)
+                .WithRequired(e => e.Food1)
+                .HasForeignKey(e => e.FoodId2)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus2)
+                .WithRequired(e => e.Food2)
+                .HasForeignKey(e => e.FoodId3)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus3)
+                .WithRequired(e => e.Food3)
+                .HasForeignKey(e => e.FoodId4)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus4)
+                .WithRequired(e => e.Food4)
+                .HasForeignKey(e => e.FoodId5)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Food>()
+                .HasMany(e => e.HotMenus5)
+                .WithRequired(e => e.Food5)
+                .HasForeignKey(e => e.FoodId6)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Food>()
                 .HasMany(e => e.Menus)

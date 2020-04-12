@@ -22,6 +22,7 @@ namespace Repositories
             Container.RegisterType<IDocumentRepository, DocumentRepository>();
             Container.RegisterType<IDesignCategoryRepository, DesignCategoryRepository>();
             Container.RegisterType<IDesignRepository, DesignRepository>();
+            Container.RegisterType<IHotMenuRepository, HotMenuRepository>();
         }
     }
 }

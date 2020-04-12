@@ -11,6 +11,12 @@ namespace Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Food()
         {
+            HotMenus = new HashSet<HotMenu>();
+            HotMenus1 = new HashSet<HotMenu>();
+            HotMenus2 = new HashSet<HotMenu>();
+            HotMenus3 = new HashSet<HotMenu>();
+            HotMenus4 = new HashSet<HotMenu>();
+            HotMenus5 = new HashSet<HotMenu>();
             Menus = new HashSet<Menu>();
             Menus1 = new HashSet<Menu>();
             Menus2 = new HashSet<Menu>();
@@ -46,6 +52,24 @@ namespace Models
         public long OrderIndex { get; set; }
 
         public virtual FoodCategory FoodCategory { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus2 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus3 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus4 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HotMenu> HotMenus5 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Menu> Menus { get; set; }

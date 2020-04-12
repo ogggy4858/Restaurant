@@ -28,7 +28,6 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            //var list =  _userRepository.List();
             return View();
         }
 
@@ -132,17 +131,21 @@ namespace WebApp.Controllers
             }
         }
 
-
         [ChildActionOnly]
         public ActionResult HotMenu()
         {
             try
             {
-                return PartialView("_HotMenu");
+                var hot = _designRepository.DisplayHotMenu("HotMenu");
+                return PartialView("_HotMenu", hot);
             }
             catch (Exception ex)
             {
-                return PartialView("_HotMenu");
+                return PartialView("_HotMenu", new DesignVM()
+                {
+                    Title = "Hot Menu",
+                    Content = "Những món ăn được nhiều người ưa chuộng nhất"
+                });
             }
         }
 
@@ -151,11 +154,16 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_Menu");
+                var menu = _designRepository.DisplayHotMenu("Menu");
+                return PartialView("_Menu", menu);
             }
             catch (Exception ex)
             {
-                return PartialView("_Menu");
+                return PartialView("_Menu", new DesignVM()
+                {
+                    Title = "Menu",
+                    Content = "Món ăn hấp dẫn của nhà hàng"
+                });
 
             }
         }
@@ -173,7 +181,6 @@ namespace WebApp.Controllers
 
             }
         }
-
 
         [ChildActionOnly]
         public ActionResult SynthesizeInfo()
