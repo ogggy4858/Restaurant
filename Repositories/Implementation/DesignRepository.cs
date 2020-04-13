@@ -379,6 +379,60 @@ namespace Repositories.Implementation
             return viewModel;
         }
 
+        public List<string> DisplayImage(string categoryName)
+        {
+            var viewModel = _context.Designs
+                .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+                .Select(x => new DesignVM()
+                {
+                    Content = x.Content,
+                    CreateDate = x.CreateDate,
+                    DesignCategoryId = x.DesignCategoryId,
+                    Id = x.Id,
+                    Quote = x.Quote,
+                    Status = x.Status,
+                    Title = x.Title,
+                    DesignCategory = new DesignCategoryVM()
+                    {
+                        Status = x.DesignCategory.Status,
+                        Id = x.DesignCategory.Id,
+                        Name = x.DesignCategory.Name
+                    },
+                    Documents = x.Documents.Select(a => new DocumentVM()
+                    {
+                        Id = a.Id,
+                        DesignId = a.DesignId,
+                        FileName = a.FileName,
+                        FeedBackId = a.FeedBackId,
+                        Stauts = a.Stauts
+                    }).ToList()
+                }).FirstOrDefault();
+            if (viewModel == null)
+            {
+                return new List<string>()
+                {
+                    "",
+                    "",
+                    "",
+                    ""
+                };
+            }
+            else
+            {
+                if(viewModel.Documents.Count == 4)
+                {
+                    return viewModel.Documents.Select(x => x.FileName).ToList();
+                }
+                return new List<string>()
+                {
+                    "",
+                    "",
+                    "",
+                    ""
+                };
+            }
+        }
+
         private Design Detail(Guid id)
         {
             if (id == null || id == Guid.Empty)

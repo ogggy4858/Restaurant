@@ -250,6 +250,7 @@
     <Content Include="Areas\Admin\Libraries\js\food.js" />
     <Content Include="Areas\Admin\Libraries\js\foodCategory.js" />
     <Content Include="Areas\Admin\Libraries\js\hotMenu.js" />
+    <Content Include="Areas\Admin\Libraries\js\image.js" />
     <Content Include="Areas\Admin\Libraries\js\interfaceManager.js" />
     <Content Include="Areas\Admin\Libraries\js\jquery.min.js" />
     <Content Include="Areas\Admin\Libraries\js\main.js" />
@@ -710,6 +711,8 @@
     <Content Include="Areas\Admin\Views\HotMenu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HotMenu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HotMenu\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\Image.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\ImageCreate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\_Banner.cshtml" />
     <Content Include="Views\Home\_Info.cshtml" />

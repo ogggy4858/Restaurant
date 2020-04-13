@@ -16,17 +16,23 @@ namespace WebApp.Controllers
         private readonly IDocumentRepository _documentRepository;
         private readonly IDesignRepository _designRepository;
         private readonly IHotMenuRepository _hotMenuRepository;
-
+        private readonly IMenuRepository _menuRepository;
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
 
-        public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository, IDesignRepository designRepository, IHotMenuRepository hotMenuRepository)
+        public HomeController(IUserRepository userRepository, 
+            IFeedBackRepository feedBackRepository, 
+            IDocumentRepository documentRepository, 
+            IDesignRepository designRepository, 
+            IHotMenuRepository hotMenuRepository,
+            IMenuRepository menuRepository)
         {
             _userRepository = userRepository;
             _feedBackRepository = feedBackRepository;
             _documentRepository = documentRepository;
             _designRepository = designRepository;
             _hotMenuRepository = hotMenuRepository;
+            _menuRepository = menuRepository;
         }
 
         public ActionResult Index()
@@ -162,15 +168,76 @@ namespace WebApp.Controllers
         {
             try
             {
-                var menu = _designRepository.DisplayHotMenu("Menu");
-                return PartialView("_Menu", menu);
+                var menu = _menuRepository.DisplayMenu();
+                var menuTitle = _designRepository.DisplayMenu("Menu");
+                ViewBag.Menu = menu;
+                return PartialView("_Menu", menuTitle);
             }
             catch (Exception ex)
             {
+                ViewBag.Menu = new MenuVM()
+                {
+                    Food = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 1",
+                        Image = "Img-34.jpg"
+                    },
+                    Food1 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 2",
+                        Image = "Img-34.jpg"
+                    },
+                    Food2 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 2",
+                        Image = "Img-34.jpg"
+                    },
+                    Food3 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 3",
+                        Image = "Img-34.jpg"
+                    },
+                    Food4 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 4",
+                        Image = "Img-34.jpg"
+                    },
+                    Food5 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 5",
+                        Image = "Img-34.jpg"
+                    },
+                    Food6 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 6",
+                        Image = "Img-34.jpg"
+                    },
+                    Food7 = new FoodVM()
+                    {
+                        Description = "Mô tả",
+                        Status = true,
+                        Name = "Tên món ăn 7",
+                        Image = "Img-34.jpg"
+                    },
+                };
                 return PartialView("_Menu", new DesignVM()
                 {
                     Title = "Menu",
-                    Content = "Món ăn hấp dẫn của nhà hàng"
+                    Content = "Những món ăn tại nhà hàng"
                 });
 
             }
@@ -181,12 +248,18 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_Image");
+                var listFileName = _designRepository.DisplayImage("Image");
+                return PartialView("_Image", listFileName);
             }
             catch (Exception ex)
             {
-                return PartialView("_Image");
-
+                return PartialView("_Image", new List<string>()
+                {
+                    "", 
+                    "",
+                    "",
+                    ""
+                });
             }
         }
 

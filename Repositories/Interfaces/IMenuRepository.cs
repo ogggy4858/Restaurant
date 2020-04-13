@@ -14,5 +14,6 @@ namespace Repositories.Interfaces
         void Edit(MenuVM model);
         void DeleteAll();
         void SetActive(Guid id);
+        MenuVM DisplayMenu();
     }
 }

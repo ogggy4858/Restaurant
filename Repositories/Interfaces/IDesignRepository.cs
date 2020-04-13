@@ -20,5 +20,6 @@ namespace Repositories.Interfaces
         List<DesignVM> DisplayService(string categoryName);
         DesignVM DisplayHotMenu(string categoryName);
         DesignVM DisplayMenu(string categoryName);
+        List<string> DisplayImage(string categoryName);
     }
 }

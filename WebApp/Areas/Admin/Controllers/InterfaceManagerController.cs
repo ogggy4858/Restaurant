@@ -13,7 +13,7 @@ namespace WebApp.Areas.Admin.Controllers
     {
         private readonly IDesignRepository _designRepository;
         private readonly IDocumentRepository _documentRepository;
-        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF" };
+        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW" };
 
         public InterfaceManagerController(IDesignRepository designRepository, IDocumentRepository documentRepository)
         {
@@ -333,7 +333,6 @@ namespace WebApp.Areas.Admin.Controllers
             return View(list);
         }
 
-
         [HttpGet]
         public ActionResult MenuCreate()
         {
@@ -379,6 +378,69 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+        public ActionResult Image()
+        {
+            var list = _designRepository.GetList("Image");
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult ImageCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ImageCreate(HttpPostedFileBase image1, HttpPostedFileBase image2, HttpPostedFileBase image3, HttpPostedFileBase image4)
+        {
+            try
+            {
+                if (image1 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 1");
+                }
+                if (image2 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 2");
+                }
+                if (image3 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 3");
+                }
+                if (image4 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 4");
+                }
+
+                if (image1 != null && image2 != null && image3 != null && image4 != null)
+                {
+                    var imageId = _designRepository.Create(new DesignVM()
+                    {
+                        Content = "Content Images"
+                    }, "Image");
+                    var fileName1 = SaveImage(image1);
+                    var fileName2 = SaveImage(image2);
+                    var fileName3 = SaveImage(image3);
+                    var fileName4 = SaveImage(image4);
+
+                    var listFileName = new List<string>();
+                    listFileName.Add(fileName1);
+                    listFileName.Add(fileName2);
+                    listFileName.Add(fileName3);
+                    listFileName.Add(fileName4);
+
+                    _documentRepository.CreateForDesign(listFileName, imageId);
+                    return RedirectToAction("Image");
+                }
+
+                return View();
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
+                return View();
+            }
+        }
 
         [HttpPost]
         public JsonResult Active(Guid id, string categoryName)
