@@ -475,26 +475,14 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\ManageLogins.cshtml" />
     <Content Include="Views\Manage\SetPassword.cshtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="scss\.DS_Store" />
     <Content Include="scss\bootstrap\bootstrap-grid.scss" />
@@ -585,7 +573,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Viewer\" />
     <Folder Include="fonts\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
@@ -724,7 +711,6 @@
     <Content Include="Areas\Admin\Views\HotMenu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HotMenu\Details.cshtml" />
     <None Include="packages.config" />
-    <Content Include="Views\Shared\_LayoutAccount.cshtml" />
     <Content Include="Views\Home\_Banner.cshtml" />
     <Content Include="Views\Home\_Info.cshtml" />
     <Content Include="Views\Home\_Welcome.cshtml" />
@@ -737,7 +723,8 @@
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Home\_Blog.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="Views\Viewer\NotFountPage.cshtml" />
+    <Content Include="Views\Viewer\NotFoundPage.cshtml" />
+    <Content Include="Views\Viewer\Logged.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

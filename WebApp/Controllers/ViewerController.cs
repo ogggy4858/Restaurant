@@ -8,7 +8,12 @@ namespace WebApp.Controllers
 {
     public class ViewerController : Controller
     {
-        public ActionResult NotFountPage()
+        public ActionResult NotFoundPage()
+        {
+            return View();
+        }
+
+        public ActionResult Logged()
         {
             return View();
         }

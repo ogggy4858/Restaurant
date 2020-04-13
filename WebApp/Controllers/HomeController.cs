@@ -15,15 +15,18 @@ namespace WebApp.Controllers
         private readonly IFeedBackRepository _feedBackRepository;
         private readonly IDocumentRepository _documentRepository;
         private readonly IDesignRepository _designRepository;
+        private readonly IHotMenuRepository _hotMenuRepository;
+
         public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
 
 
-        public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository, IDesignRepository designRepository)
+        public HomeController(IUserRepository userRepository, IFeedBackRepository feedBackRepository, IDocumentRepository documentRepository, IDesignRepository designRepository, IHotMenuRepository hotMenuRepository)
         {
             _userRepository = userRepository;
             _feedBackRepository = feedBackRepository;
             _documentRepository = documentRepository;
             _designRepository = designRepository;
+            _hotMenuRepository = hotMenuRepository;
         }
 
         public ActionResult Index()
@@ -137,10 +140,15 @@ namespace WebApp.Controllers
             try
             {
                 var hot = _designRepository.DisplayHotMenu("HotMenu");
+                ViewBag.MenuHot = _hotMenuRepository.DisplayHotMenu();
                 return PartialView("_HotMenu", hot);
             }
             catch (Exception ex)
             {
+                ViewBag.MenuHot = new HotMenuVM()
+                {
+
+                };
                 return PartialView("_HotMenu", new DesignVM()
                 {
                     Title = "Hot Menu",

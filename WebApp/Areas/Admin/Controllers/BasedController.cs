@@ -20,7 +20,7 @@ namespace WebApp.Areas.Admin.Controllers
             bool isAdmin = _userRepository.IsAdmin(User.Identity.Name);
             if (Request.IsAuthenticated == false || isAdmin == false)
             {
-                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Viewer", action = "NotFountPage", Area = "" }));
+                filterContext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary(new { controller = "Viewer", action = "NotFoundPage", Area = "" }));
             }
             base.OnActionExecuting(filterContext);
         }
