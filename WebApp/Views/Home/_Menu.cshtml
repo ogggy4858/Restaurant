@@ -3,245 +3,128 @@
     var list = (ViewModels.MenuVM)ViewBag.Menu;
 }
 
-    <div class="container">
-        @if (Model != null)
-        {
-            <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">@Model.Title</h2>
-                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-                    <p class="mt-5">@Model.Content</p>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
-                <div class="col-md-7 heading-section text-center ftco-animate">
-                    <h2 class="mb-4">Menu</h2>
-                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
-                    <p class="mt-5">Những món ăn tại nhà hàng</p>
-                </div>
-            </div>
-        }
-
-        @if (list == null)
-        {
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-1.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Italian Pizza</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-2.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Hawaiian Pizza</span></h3>
-                                <span class="price">$29.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-3.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Greek Pizza</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-4.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Bacon Crispy Thins</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-5.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Hawaiian Special</span></h3>
-                                <span class="price">$49.91</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-6.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Ultimate Overload</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-7.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Bacon Pizza</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../assets/images/pizza-8.jpg);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>Ham &amp; Pineapple</span></h3>
-                                <span class="price">$20.00</span>
-                            </div>
-                            <div class="d-block">
-                                <p>A small river named Duden flows by their place and supplies</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food.Name</span></h3>
-                                <span class="price">@list.Food.PriceDisplay</span>
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food1.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food1.Name</span></h3>
-                                <span class="price">@list.Food1.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food1.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food2.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food2.Name</span></h3>
-                                <span class="price">@list.Food2.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food2.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food3.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food3.Name</span></h3>
-                                <span class="price">@list.Food3.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food3.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food4.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food4.Name</span></h3>
-                                <span class="price">@list.Food4.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food4.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food5.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food5.Name</span></h3>
-                                <span class="price">@list.Food5.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food5.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food6.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food6.Name</span></h3>
-                                <span class="price">@list.Food6.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food6.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pricing-entry d-flex ftco-animate">
-                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food7.Image);"></div>
-                        <div class="desc pl-3">
-                            <div class="d-flex text align-items-center">
-                                <h3><span>@list.Food7.Name</span></h3>
-                                <span class="price">@list.Food7.PriceDisplay</span>
-
-                            </div>
-                            <div class="d-block">
-                                <p>@list.Food7.Description</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        }
+<div class="container">
+    <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 class="mb-4">@Model.Title</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            <p class="mt-5">@Model.Content</p>
+        </div>
     </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food.Name</span></h3>
+                        <span class="price">@list.Food.PriceDisplay</span>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food1.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food1.Name</span></h3>
+                        <span class="price">@list.Food1.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food1.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food2.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food2.Name</span></h3>
+                        <span class="price">@list.Food2.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food2.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food3.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food3.Name</span></h3>
+                        <span class="price">@list.Food3.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food3.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food4.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food4.Name</span></h3>
+                        <span class="price">@list.Food4.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food4.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food5.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food5.Name</span></h3>
+                        <span class="price">@list.Food5.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food5.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food6.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food6.Name</span></h3>
+                        <span class="price">@list.Food6.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food6.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food7.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food7.Name</span></h3>
+                        <span class="price">@list.Food7.PriceDisplay</span>
+
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food7.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p style="text-align: center; padding-top: 10px">
+        <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-3 py-xl-2">Xem thêm</a>
+    </p>
+
+</div>

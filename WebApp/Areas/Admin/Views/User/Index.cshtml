@@ -47,13 +47,16 @@
                 }
             </td>
             <td>
-                @if (!item.IsAdmin)
+                @if (item.Email != User.Identity.Name)
                 {
-                    <button class="btn btn-success btn-add-admin" data-id="@item.Id">Thêm quyền amdin</button>
-                }
-                else
-                {
-                    <button class="btn btn-danger btn-remove-admin" data-id="@item.Id">Bỏ quyền amdin</button>
+                    if (!item.IsAdmin)
+                    {
+                        <button class="btn btn-success btn-add-admin" data-id="@item.Id">Thêm quyền amdin</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger btn-remove-admin" data-id="@item.Id">Bỏ quyền amdin</button>
+                    }
                 }
             </td>
         </tr>

@@ -391,7 +391,10 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult ImageCreate(HttpPostedFileBase image1, HttpPostedFileBase image2, HttpPostedFileBase image3, HttpPostedFileBase image4)
+        public ActionResult ImageCreate(HttpPostedFileBase image1, HttpPostedFileBase image2, 
+            HttpPostedFileBase image3, HttpPostedFileBase image4, 
+            HttpPostedFileBase image5, HttpPostedFileBase image6, 
+            HttpPostedFileBase image7, HttpPostedFileBase image8)
         {
             try
             {
@@ -411,8 +414,25 @@ namespace WebApp.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Bạn phải chọn hình ảnh 4");
                 }
+                if (image5 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 5");
+                }
+                if (image6 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 6");
+                }
+                if (image7 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 7");
+                }
+                if (image8 == null)
+                {
+                    ModelState.AddModelError("", "Bạn phải chọn hình ảnh 8");
+                }
 
-                if (image1 != null && image2 != null && image3 != null && image4 != null)
+                if (image1 != null && image2 != null && image3 != null && image4 != null 
+                    && image5 != null && image6 != null && image7 != null && image8 != null)
                 {
                     var imageId = _designRepository.Create(new DesignVM()
                     {
@@ -422,12 +442,20 @@ namespace WebApp.Areas.Admin.Controllers
                     var fileName2 = SaveImage(image2);
                     var fileName3 = SaveImage(image3);
                     var fileName4 = SaveImage(image4);
+                    var fileName5 = SaveImage(image5);
+                    var fileName6 = SaveImage(image6);
+                    var fileName7 = SaveImage(image7);
+                    var fileName8 = SaveImage(image8);
 
                     var listFileName = new List<string>();
                     listFileName.Add(fileName1);
                     listFileName.Add(fileName2);
                     listFileName.Add(fileName3);
                     listFileName.Add(fileName4);
+                    listFileName.Add(fileName5);
+                    listFileName.Add(fileName6);
+                    listFileName.Add(fileName7);
+                    listFileName.Add(fileName8);
 
                     _documentRepository.CreateForDesign(listFileName, imageId);
                     return RedirectToAction("Image");

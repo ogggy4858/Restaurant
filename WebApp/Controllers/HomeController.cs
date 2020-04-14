@@ -1,4 +1,5 @@
 ﻿using Repositories.Interfaces;
+using Repositories.StaticData;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,17 +53,11 @@ namespace WebApp.Controllers
         {
             try
             {
-                var model = _designRepository.DisplayBanner("Banner");
-                return PartialView("_Banner", model);
+                return PartialView("_Banner", _designRepository.DisplayBanner("Banner"));
             }
             catch (Exception ex)
             {
-                return PartialView("_Banner", new DesignVM()
-                {
-                    Quote = "Welcome",
-                    Title = "Chào mừng thực khách đến với nhà hàng",
-                    Content = ""
-                });
+                return PartialView("_Banner", CommonData.DisplayBanner);
             }
         }
 
@@ -71,17 +66,11 @@ namespace WebApp.Controllers
         {
             try
             {
-                var list = _designRepository.DisplayInfo("Info");
-                return PartialView("_Info", list);
+                return PartialView("_Info", _designRepository.DisplayInfo("Info"));
             }
             catch (Exception ex)
             {
-                return PartialView("_Info", new List<DesignVM>()
-                {
-                    new DesignVM(){},
-                    new DesignVM(){},
-                    new DesignVM(){},
-                });
+                return PartialView("_Info", CommonData.DisplayInfo);
             }
         }
 
@@ -90,17 +79,12 @@ namespace WebApp.Controllers
         {
             try
             {
-                var ob = _designRepository.DisplayWelcome("Welcome");
-                return PartialView("_Welcome", ob);
+                return PartialView("_Welcome", _designRepository.DisplayWelcome("Welcome"));
 
             }
             catch (Exception ex)
             {
-                return PartialView("_Welcome", new DesignVM()
-                {
-                    Title = "Chào mừng thực khách đến với nhà hàng",
-                    Content = "Để tránh tình trạng hết bàn/bàn view sông đẹp trong những dịp quan trọng, cuối tuần, lễ tết, Khiem-Baba đã tạo ra một hệ thống tự đặt bàn trực tuyến dành cho bạn. Chỉ cần điền số điện thoại là ngay lập tức bạn đã bàn không lo hết mà còn được cả vị trí view sông đẹp. Chưa hết đâu, bạn còn nhận được giảm 10% tổng bill khi đặt trực tuyến nữa. Còn chân chừ gì mà không gọi mấy đứa cạ cứng đến chiến và thưởng thức view sông Sài Gòn có một không hai?"
-                });
+                return PartialView("_Welcome", CommonData.DisplayWelcome);
             }
         }
 
@@ -109,34 +93,11 @@ namespace WebApp.Controllers
         {
             try
             {
-                var list = _designRepository.DisplayService("Service");
-                return PartialView("_Service", list);
+                return PartialView("_Service", _designRepository.DisplayService("Service"));
             }
             catch (Exception ex)
             {
-                return PartialView("_Service", new List<DesignVM>()
-                {
-                     new DesignVM()
-                     {
-                        Title = "Dịch vụ của chúng tôi",
-                        Content = "Đến với nhà hàng, bạn sẽ được trải nghiệm dịch vụ tuyệt vời của chúng tôi"
-                     },
-                    new DesignVM()
-                    {
-                        Title = "Thực phẩm sạch",
-                        Content = "Thực phẩm hoàn toàn từ tự nhiên, không chất bảo quản"
-                    },
-                    new DesignVM()
-                    {
-                        Title = "Ship đồ ăn nhanh",
-                        Content = "Chúng tôi có một đội dân tổ riêng"
-                    },
-                    new DesignVM()
-                    {
-                        Title = "Hoạt động 24h / ngày",
-                        Content = "Gọi cho chúng tôi ngay"
-                    },
-                });
+                return PartialView("_Service", CommonData.DisplayService);
             }
         }
 
@@ -145,21 +106,13 @@ namespace WebApp.Controllers
         {
             try
             {
-                var hot = _designRepository.DisplayHotMenu("HotMenu");
                 ViewBag.MenuHot = _hotMenuRepository.DisplayHotMenu();
-                return PartialView("_HotMenu", hot);
+                return PartialView("_HotMenu", _designRepository.DisplayHotMenu("HotMenu"));
             }
             catch (Exception ex)
             {
-                ViewBag.MenuHot = new HotMenuVM()
-                {
-
-                };
-                return PartialView("_HotMenu", new DesignVM()
-                {
-                    Title = "Hot Menu",
-                    Content = "Những món ăn được nhiều người ưa chuộng nhất"
-                });
+                ViewBag.MenuHot = CommonData.HotMenu;
+                return PartialView("_HotMenu", CommonData.DisplayHotMenu);
             }
         }
 
@@ -168,78 +121,13 @@ namespace WebApp.Controllers
         {
             try
             {
-                var menu = _menuRepository.DisplayMenu();
-                var menuTitle = _designRepository.DisplayMenu("Menu");
-                ViewBag.Menu = menu;
-                return PartialView("_Menu", menuTitle);
+                ViewBag.Menu = _menuRepository.DisplayMenu();
+                return PartialView("_Menu", _designRepository.DisplayMenu("Menu"));
             }
             catch (Exception ex)
             {
-                ViewBag.Menu = new MenuVM()
-                {
-                    Food = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 1",
-                        Image = "Img-34.jpg"
-                    },
-                    Food1 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 2",
-                        Image = "Img-34.jpg"
-                    },
-                    Food2 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 2",
-                        Image = "Img-34.jpg"
-                    },
-                    Food3 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 3",
-                        Image = "Img-34.jpg"
-                    },
-                    Food4 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 4",
-                        Image = "Img-34.jpg"
-                    },
-                    Food5 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 5",
-                        Image = "Img-34.jpg"
-                    },
-                    Food6 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 6",
-                        Image = "Img-34.jpg"
-                    },
-                    Food7 = new FoodVM()
-                    {
-                        Description = "Mô tả",
-                        Status = true,
-                        Name = "Tên món ăn 7",
-                        Image = "Img-34.jpg"
-                    },
-                };
-                return PartialView("_Menu", new DesignVM()
-                {
-                    Title = "Menu",
-                    Content = "Những món ăn tại nhà hàng"
-                });
-
+                ViewBag.Menu = CommonData.Menu;
+                return PartialView("_Menu", CommonData.DisplayMenu);
             }
         }
 
@@ -248,18 +136,11 @@ namespace WebApp.Controllers
         {
             try
             {
-                var listFileName = _designRepository.DisplayImage("Image");
-                return PartialView("_Image", listFileName);
+                return PartialView("_Image", _designRepository.DisplayImage("Image"));
             }
             catch (Exception ex)
             {
-                return PartialView("_Image", new List<string>()
-                {
-                    "", 
-                    "",
-                    "",
-                    ""
-                });
+                return PartialView("_Image", CommonData.DisplayImage);
             }
         }
 
