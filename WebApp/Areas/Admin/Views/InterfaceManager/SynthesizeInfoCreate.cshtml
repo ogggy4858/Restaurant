@@ -1,0 +1,81 @@
+﻿@model ViewModels.DesignVM
+
+@{
+    ViewBag.Title = "Quản lý giao diện: SynthesizeInfo";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Title{
+    @ViewBag.Title
+}
+
+<h5 class="col-md-10 text-danger">Lưu ý: Nếu bạn thêm mới Synthesize Info, Synthesize Info cũ sẽ bị xóa, giao diện sẽ nhận Synthesize Info mới khi bạn thêm</h5>
+
+@using (Html.BeginForm("SynthesizeInfoCreate", "InterfaceManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <span class="col-md-2">Tiêu đề</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="title" value="@ViewBag.TitleMain">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Mô tả tiêu đề</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="description" value="@ViewBag.DescriptionMain">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="col-md-2">Tiêu đề 1</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="title1" value="@ViewBag.Title1">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Mô tả tiêu đề 1</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="description1" value="@ViewBag.Description1">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="col-md-2">Tiêu đề 2</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="title2" value="@ViewBag.Title2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Mô tả tiêu đề 2</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="description2" value="@ViewBag.Description2">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh</span>
+            <div class="col-md-10">
+                <input type="file" name="image">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "Service")
+            </div>
+        </div>
+    </div>
+}
+

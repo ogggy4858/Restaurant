@@ -1,0 +1,80 @@
+﻿@model List<ViewModels.DesignVM>
+
+@{
+    ViewBag.Title = "Quản lý giao diện: SynthesizeInfo";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@{
+    string fileName = "";
+    if (Model != null)
+    {
+        if (Model.Count > 0)
+        {
+            if (Model[0] != null)
+            {
+                if (Model[0].Documents != null)
+                {
+                    if (Model[0].Documents.FirstOrDefault() != null)
+                    {
+                        fileName = Model[0].Documents.FirstOrDefault().FileName;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@section Title{
+    @ViewBag.Title
+}
+
+@Html.ActionLink("Thêm mới", "SynthesizeInfoCreate")
+
+<table class="table">
+    <tr>
+        <th>Tiêu đề 1 / Mô tả 1</th>
+        <th>Tiêu đề 2 / Mô tả 2</th>
+        <th>Tiêu đề 3 / Mô tả 3</th>
+        <th>Status</th>
+    </tr>
+
+    <tr>
+        @if (Model.Count != 0)
+        {
+            <td>
+                @Model[0].Title <br />
+                @Model[0].Content
+            </td>
+            <td>
+                @Model[1].Title <br />
+                @Model[1].Content
+            </td>
+
+            <td>
+                @Model[2].Title <br />
+                @Model[2].Content
+            </td>
+
+            <td>Đang được áp dụng</td>
+        }
+    </tr>
+
+    <tr>
+        <td colspan="4"><b>Hình ảnh</b></td>
+    </tr>
+
+    <tr>
+        <td colspan="4">
+            @if (string.IsNullOrEmpty(fileName))
+            {
+                <span>Chưa có hình ảnh</span>
+            }
+            else
+            {
+                <img src="~/Areas/Admin/Libraries/images/@fileName" style="width: 1000px; height: auto">
+            }
+        </td>
+    </tr>
+</table>

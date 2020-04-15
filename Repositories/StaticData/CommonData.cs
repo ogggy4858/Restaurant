@@ -180,5 +180,24 @@ namespace Repositories.StaticData
                 Image = "undefined-nha-hang-khiem-hoa-ma-0-1e347e2a637121871242636335.jpg"
             }
         };
+
+        public static List<DesignVM> DisplaySynthesizeInfo = new List<DesignVM>()
+        {
+            new DesignVM()
+            {
+                Title = "50",
+                Content = "Món ăn hấp dẫn"
+            },
+            new DesignVM()
+            {
+                Title = "4",
+                Content = "Đầu bếp nổi tiếng"
+            },
+            new DesignVM()
+            {
+                Title = "5128",
+                Content = "Khách hàng đã phục vụ"
+            }
+        };
     }
 }

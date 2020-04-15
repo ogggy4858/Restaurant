@@ -18,8 +18,7 @@ namespace WebApp.Controllers
         private readonly IDesignRepository _designRepository;
         private readonly IHotMenuRepository _hotMenuRepository;
         private readonly IMenuRepository _menuRepository;
-        public static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG" };
-
+        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW", ".JPEG" };
 
         public HomeController(IUserRepository userRepository, 
             IFeedBackRepository feedBackRepository, 
@@ -149,12 +148,11 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_SynthesizeInfo");
+                return PartialView("_SynthesizeInfo", _designRepository.DisplaySynthesizeInfo("SynthesizeInfo"));
             }
             catch (Exception ex)
             {
-                return PartialView("_SynthesizeInfo");
-
+                return PartialView("_SynthesizeInfo", CommonData.DisplaySynthesizeInfo);
             }
         }
 

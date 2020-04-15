@@ -713,6 +713,8 @@
     <Content Include="Areas\Admin\Views\HotMenu\Details.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\Image.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\ImageCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\SynthesizeInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\SynthesizeInfoCreate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\_Banner.cshtml" />
     <Content Include="Views\Home\_Info.cshtml" />

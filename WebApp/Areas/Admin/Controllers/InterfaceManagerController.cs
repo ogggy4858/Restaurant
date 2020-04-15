@@ -13,7 +13,7 @@ namespace WebApp.Areas.Admin.Controllers
     {
         private readonly IDesignRepository _designRepository;
         private readonly IDocumentRepository _documentRepository;
-        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW" };
+        private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW", ".JPEG" };
 
         public InterfaceManagerController(IDesignRepository designRepository, IDocumentRepository documentRepository)
         {
@@ -462,6 +462,71 @@ namespace WebApp.Areas.Admin.Controllers
                 }
 
                 return View();
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
+                return View();
+            }
+        }
+
+        public ActionResult SynthesizeInfo()
+        {
+            var list = _designRepository.GetList("SynthesizeInfo", true);
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult SynthesizeInfoCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SynthesizeInfoCreate(string title, string description, string title1, string description1, string title2, string description2, HttpPostedFileBase image)
+        {
+            ViewBag.TitleMain = title;
+            ViewBag.DescriptionMain = description;
+            ViewBag.Title1 = title1;
+            ViewBag.Description1 = description1;
+            ViewBag.Title2 = title2;
+            ViewBag.Description2 = description2;
+
+            try
+            {
+                if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(title1) || string.IsNullOrWhiteSpace(description1) || 
+                    string.IsNullOrWhiteSpace(title2) || string.IsNullOrWhiteSpace(description2))
+                {
+                    ModelState.AddModelError("", "Dữ liệu không được để trống");
+                    return View();
+                }
+
+                _designRepository.DeleteByCategory("SynthesizeInfo");
+                var id1 = _designRepository.Create(new DesignVM()
+                {
+                    Title = title,
+                    Content = description
+                }, "SynthesizeInfo", false);
+                var id2 = _designRepository.Create(new DesignVM()
+                {
+                    Title = title1,
+                    Content = description1
+                }, "SynthesizeInfo", false);
+                var id3 = _designRepository.Create(new DesignVM()
+                {
+                    Title = title2,
+                    Content = description2
+                }, "SynthesizeInfo", false);
+
+                if(image != null)
+                {
+                    var fileName = SaveImage(image);
+                    _documentRepository.CreateForDesign(fileName, id1);
+                    _documentRepository.CreateForDesign(fileName, id2);
+                    _documentRepository.CreateForDesign(fileName, id3);
+                }
+
+                return RedirectToAction("SynthesizeInfo");
             }
             catch(Exception ex)
             {

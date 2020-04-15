@@ -379,6 +379,49 @@ namespace Repositories.Implementation
             }
         }
 
+        public List<DesignVM> DisplaySynthesizeInfo(string categoryName)
+        {
+            var viewModel = _context.Designs
+               .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+               .Select(x => new DesignVM()
+               {
+                   Content = x.Content,
+                   CreateDate = x.CreateDate,
+                   DesignCategoryId = x.DesignCategoryId,
+                   Id = x.Id,
+                   Quote = x.Quote,
+                   Status = x.Status,
+                   Title = x.Title,
+                   DesignCategory = new DesignCategoryVM()
+                   {
+                       Status = x.DesignCategory.Status,
+                       Id = x.DesignCategory.Id,
+                       Name = x.DesignCategory.Name
+                   },
+                   Documents = x.Documents.Select(a => new DocumentVM()
+                   {
+                       Id = a.Id,
+                       DesignId = a.DesignId,
+                       FileName = a.FileName,
+                       FeedBackId = a.FeedBackId,
+                       Stauts = a.Stauts
+                   }).ToList()
+               })
+               .OrderBy(x => x.CreateDate)
+               .ToList();
+            if (viewModel == null)
+            {
+                return CommonData.DisplaySynthesizeInfo;
+            }
+
+            if (viewModel.Count == 0 || viewModel.Count != 3)
+            {
+                return CommonData.DisplaySynthesizeInfo;
+            }
+
+            return viewModel;
+        }
+
         private Design Detail(Guid id)
         {
             if (id == null || id == Guid.Empty)
