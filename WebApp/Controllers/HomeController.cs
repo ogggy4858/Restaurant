@@ -12,7 +12,7 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IFeedBackRepository _feedBackRepository;
         private readonly IDocumentRepository _documentRepository;
         private readonly IDesignRepository _designRepository;
@@ -40,13 +40,18 @@ namespace WebApp.Controllers
 
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+            try
+            {
+                ViewBag.IsAdmin = _userRepository.IsAdmin(User.Identity.Name);
+                ViewBag.WelComeMessage = _designRepository.DisplayWelcome("Welcome");
+                ViewBag.Info = _designRepository.DisplayInfo("Info");
+            }
+            catch(Exception ex)
+            {
+                ViewBag.IsAdmin = false;
+                ViewBag.WelComeMessage = CommonData.DisplayWelcome;
+                ViewBag.Info = CommonData.DisplayInfo;
+            }
             return View();
         }
 
@@ -55,10 +60,12 @@ namespace WebApp.Controllers
         {
             try
             {
+                ViewBag.Info = _designRepository.DisplayInfo("Info");
                 return PartialView("_Banner", _designRepository.DisplayBanner("Banner"));
             }
             catch (Exception ex)
             {
+                ViewBag.Info = CommonData.DisplayInfo;
                 return PartialView("_Banner", CommonData.DisplayBanner);
             }
         }
@@ -164,60 +171,13 @@ namespace WebApp.Controllers
         {
             try
             {
-                var list = _foodCategoryRepository.DisplayFoodCategories();
-                return PartialView("_FoodCategory", list);
+                ViewBag.ImageFoodCategory = _designRepository.DisplayImageFoodCategory("FoodCategory");
+                return PartialView("_FoodCategory", _foodCategoryRepository.DisplayFoodCategories());
             }
             catch (Exception ex)
             {
-                return PartialView("_FoodCategory");
-
-            }
-        }
-
-        [ChildActionOnly]
-        public ActionResult Blog()
-        {
-            try
-            {
-                return PartialView("_Blog");
-            }
-            catch (Exception ex)
-            {
-                return PartialView("_Blog");
-
-            }
-        }
-
-        [HttpGet]
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Contact(string customerName, string phone, string title, string message, HttpPostedFileBase[] file)
-        {
-            try
-            {
-                var feebBackVM = new FeedBackVM()
-                {
-                    CustomerName = customerName,
-                    Message = message,
-                    Phone = phone,
-                    Title = title
-                };
-
-                var id = _feedBackRepository.Create(feebBackVM);
-                if (file != null)
-                {
-                    var listFileName = SaveImage(file);
-                    _documentRepository.CreateForFeedBack(listFileName, id);
-                }
-                return View();
-            }
-            catch (Exception ex)
-            {
-                return View();
+                ViewBag.ImageFoodCategory = CommonData.DisplayImageFoodCategory;
+                return PartialView("_FoodCategory", CommonData.DisplayFoodCategory);
             }
         }
 

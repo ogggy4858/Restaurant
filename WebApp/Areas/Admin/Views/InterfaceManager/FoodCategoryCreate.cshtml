@@ -1,0 +1,39 @@
+﻿@model ViewModels.DesignVM
+
+@{
+    ViewBag.Title = "Quản lý giao diện: FoodCaegory";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Title{
+    @ViewBag.Title
+}
+
+@using (Html.BeginForm("FoodCategoryCreate", "InterfaceManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh</span>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="file" name="image">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "FoodCategory")
+            </div>
+        </div>
+    </div>
+}

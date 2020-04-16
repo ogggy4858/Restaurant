@@ -26,6 +26,13 @@
             Active(id, "Menu");
         }
     });
+
+    $('.btn-foodCategory-add').on('click', function () {
+        if (confirm("Bạn muốn áp dụng bản ghi này")) {
+            var id = $(this).data('id');
+            Active(id, "FoodCategory");
+        }
+    });
 });
 
 

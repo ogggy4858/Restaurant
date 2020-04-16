@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ViewModels;
 using X.PagedList.Mvc;
 using X.PagedList;
+using Repositories.StaticData;
 
 namespace Repositories.Implementation
 {
@@ -186,6 +187,17 @@ namespace Repositories.Implementation
                         Name = a.Name
                     }).ToList()
                 }).ToList();
+
+            if(list == null)
+            {
+                return CommonData.DisplayFoodCategory;
+            }
+
+            if(list.Count == 0)
+            {
+                return CommonData.DisplayFoodCategory;
+            }
+
             return list;
         }
     }

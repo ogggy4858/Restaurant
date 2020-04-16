@@ -1,8 +1,8 @@
 ﻿@model ViewModels.DesignVM
 
-@{ 
+@{
     string fileName = "";
-    if(Model.Documents == null)
+    if (Model.Documents == null)
     {
         fileName = "../../assets/images/bg_3.jpg";
     }
@@ -10,6 +10,8 @@
     {
         fileName = "../../Areas/Admin/Libraries/images/" + Model.Documents.FirstOrDefault().FileName;
     }
+
+    var info = ViewBag.Info as List<ViewModels.DesignVM>;
 }
 
 <section class="home-slider owl-carousel img">
@@ -21,7 +23,11 @@
                     <span class="subheading">@Model.Quote</span>
                     <h1 class="mb-4">@Model.Title</h1>
                     <p class="mb-4 mb-md-5">@Model.Content</p>
-                    <p><a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">Book table</a> <a href="#" class="btn btn-white btn-outline-white p-3 px-xl-4 py-xl-3">View menu</a></p>
+                    <p>
+                        <a href="#" class="btn btn-primary p-3 px-xl-4 py-xl-3">
+                            Xem menu
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

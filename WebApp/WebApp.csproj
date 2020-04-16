@@ -214,7 +214,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BasedController.cs" />
     <Compile Include="Areas\Admin\Controllers\DesignCategoryController.cs" />
-    <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FoodController.cs" />
     <Compile Include="Areas\Admin\Controllers\HotMenuController.cs" />
@@ -223,7 +222,6 @@
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ViewerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -473,8 +471,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -687,10 +683,7 @@
     <Content Include="Areas\Admin\Views\Menu\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Menu\Details.cshtml" />
-    <Content Include="Areas\Admin\Views\FeedBack\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\FeedBack\FeedBackFilter.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\ErrorView.cshtml" />
-    <Content Include="Areas\Admin\Views\FeedBack\Details.cshtml" />
     <Content Include="Areas\Admin\Views\User\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DesignCategory\Index.cshtml" />
     <Content Include="Areas\Admin\Views\DesignCategory\Create.cshtml" />
@@ -715,6 +708,8 @@
     <Content Include="Areas\Admin\Views\InterfaceManager\ImageCreate.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\SynthesizeInfo.cshtml" />
     <Content Include="Areas\Admin\Views\InterfaceManager\SynthesizeInfoCreate.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\FoodCategory.cshtml" />
+    <Content Include="Areas\Admin\Views\InterfaceManager\FoodCategoryCreate.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Home\_Banner.cshtml" />
     <Content Include="Views\Home\_Info.cshtml" />
@@ -725,8 +720,6 @@
     <Content Include="Views\Home\_Image.cshtml" />
     <Content Include="Views\Home\_SynthesizeInfo.cshtml" />
     <Content Include="Views\Home\_FoodCategory.cshtml" />
-    <Content Include="Views\Home\View.cshtml" />
-    <Content Include="Views\Home\_Blog.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Viewer\NotFoundPage.cshtml" />
     <Content Include="Views\Viewer\Logged.cshtml" />

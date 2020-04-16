@@ -535,6 +535,46 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+
+        public ActionResult FoodCategory()
+        {
+            var list = _designRepository.GetList("FoodCategory");
+            return View(list);
+        }
+
+        [HttpGet]
+        public ActionResult FoodCategoryCreate()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult FoodCategoryCreate(HttpPostedFileBase image)
+        {
+            try
+            {
+                if(image != null)
+                {
+                    ModelState.AddModelError("", "Hình ảnh là bắt buộc");
+                }
+
+                var designId = _designRepository.Create(new DesignVM()
+                {
+                    Content = "FoodCategoryCreate"
+                }, "FoodCategory");
+
+                string fileName = SaveImage(image);
+                _documentRepository.CreateForDesign(fileName, designId);
+                return RedirectToAction("FoodCategory");
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
+                return View();
+            }
+        }
+
+
         [HttpPost]
         public JsonResult Active(Guid id, string categoryName)
         {

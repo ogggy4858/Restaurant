@@ -213,7 +213,7 @@ namespace Repositories.Implementation
                 return CommonData.DisplayInfo;
             }
 
-            if(viewModel.Count == 0 || viewModel.Count != 3)
+            if (viewModel.Count == 0 || viewModel.Count != 3)
             {
                 return CommonData.DisplayInfo;
             }
@@ -256,7 +256,7 @@ namespace Repositories.Implementation
                 return CommonData.DisplayService;
             }
 
-            if(viewModel.Count == 0 || viewModel.Count != 4)
+            if (viewModel.Count == 0 || viewModel.Count != 4)
             {
                 return CommonData.DisplayService;
             }
@@ -371,7 +371,7 @@ namespace Repositories.Implementation
             }
             else
             {
-                if(viewModel.Documents.Count == 8)
+                if (viewModel.Documents.Count == 8)
                 {
                     return viewModel.Documents.Select(x => x.FileName).ToList();
                 }
@@ -420,6 +420,31 @@ namespace Repositories.Implementation
             }
 
             return viewModel;
+        }
+
+        public string DisplayImageFoodCategory(string categoryName)
+        {
+            var viewModel = _context.Designs
+            .Where(x => x.DesignCategory.Name == categoryName && x.Status == Common.CommonStatus.Active)
+            .Select(x => new DesignVM()
+            {
+                Documents = x.Documents.Select(a => new DocumentVM()
+                {
+                    FileName = a.FileName
+                }).ToList()
+            }).FirstOrDefault();
+
+            if (viewModel == null)
+            {
+                return "about.jpg";
+            }
+
+            if(viewModel.Documents.FirstOrDefault() == null)
+            {
+                return "about.jpg";
+            }
+
+            return viewModel.Documents.FirstOrDefault().FileName;
         }
 
         private Design Detail(Guid id)

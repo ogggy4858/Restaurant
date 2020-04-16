@@ -2,19 +2,22 @@
 
 @{ 
     string fileName = "";
-    if(Model.Documents == null)
+    if (Model != null)
     {
-        fileName = "_a1a8429.jpg";
-    }
-    else
-    {
-        if(Model.Documents.FirstOrDefault() == null)
+        if (Model.Documents == null)
         {
             fileName = "_a1a8429.jpg";
         }
         else
         {
-             fileName = Model.Documents.FirstOrDefault().FileName;
+            if (Model.Documents.FirstOrDefault() == null)
+            {
+                fileName = "_a1a8429.jpg";
+            }
+            else
+            {
+                fileName = Model.Documents.FirstOrDefault().FileName;
+            }
         }
     }
 }

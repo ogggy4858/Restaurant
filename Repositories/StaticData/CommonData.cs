@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -199,5 +200,86 @@ namespace Repositories.StaticData
                 Content = "Khách hàng đã phục vụ"
             }
         };
+
+        public static List<FoodCategoryVM> DisplayFoodCategory = new List<FoodCategoryVM>()
+        {
+            new FoodCategoryVM()
+            {
+                Name = "Món ăn",
+                Foods = new Collection<FoodVM>()
+                {
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                       Name = "Món ăn 1",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-dbc8a02d637121870726113713.jpg",
+                       Name = "Món ăn 2",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-a0143bcb637121871058241971.jpg",
+                       Name = "Món ăn 3",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   }
+                }
+            },
+            new FoodCategoryVM()
+            {
+                Name = "Món khai vị",
+                Foods = new Collection<FoodVM>()
+                {
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                       Name = "Món ăn 1",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-dbc8a02d637121870726113713.jpg",
+                       Name = "Món ăn 2",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-a0143bcb637121871058241971.jpg",
+                       Name = "Món ăn 3",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   }
+                }
+            },
+            new FoodCategoryVM()
+            {
+                Name = "Đồ uống",
+                Foods = new Collection<FoodVM>()
+                {
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                       Name = "Món ăn 1",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-dbc8a02d637121870726113713.jpg",
+                       Name = "Món ăn 2",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   },
+                   new FoodVM()
+                   {
+                       Image = "undefined-nha-hang-khiem-hoa-ma-0-a0143bcb637121871058241971.jpg",
+                       Name = "Món ăn 3",
+                       Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+                   }
+                }
+            }
+        };
+
+        public static string DisplayImageFoodCategory = "about.jpg";
     }
 }
