@@ -18,6 +18,7 @@ namespace WebApp.Controllers
         private readonly IDesignRepository _designRepository;
         private readonly IHotMenuRepository _hotMenuRepository;
         private readonly IMenuRepository _menuRepository;
+        private readonly IFoodCategoryRepository _foodCategoryRepository;
         private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW", ".JPEG" };
 
         public HomeController(IUserRepository userRepository, 
@@ -25,7 +26,8 @@ namespace WebApp.Controllers
             IDocumentRepository documentRepository, 
             IDesignRepository designRepository, 
             IHotMenuRepository hotMenuRepository,
-            IMenuRepository menuRepository)
+            IMenuRepository menuRepository,
+            IFoodCategoryRepository foodCategoryRepository)
         {
             _userRepository = userRepository;
             _feedBackRepository = feedBackRepository;
@@ -33,6 +35,7 @@ namespace WebApp.Controllers
             _designRepository = designRepository;
             _hotMenuRepository = hotMenuRepository;
             _menuRepository = menuRepository;
+            _foodCategoryRepository = foodCategoryRepository;
         }
 
         public ActionResult Index()
@@ -161,7 +164,8 @@ namespace WebApp.Controllers
         {
             try
             {
-                return PartialView("_FoodCategory");
+                var list = _foodCategoryRepository.DisplayFoodCategories();
+                return PartialView("_FoodCategory", list);
             }
             catch (Exception ex)
             {

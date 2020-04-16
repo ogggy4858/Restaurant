@@ -30,13 +30,12 @@ namespace Repositories.Implementation
             var check = _context.FoodCategories
                 .Where(x => x.Name == name.Trim() && x.Status != Common.CommonStatus.Delete)
                 .FirstOrDefault();
-            if(check == null)
+            if (check == null)
             {
                 return true;
             }
             return false;
         }
-
 
         public void Create(FoodCategoryVM model)
         {
@@ -135,7 +134,7 @@ namespace Repositories.Implementation
                 list = list.Where(x => x.Name.Contains(searchKey));
             }
 
-            if(status != null)
+            if (status != null)
             {
                 list = list.Where(x => x.Status == status);
             }
@@ -144,9 +143,9 @@ namespace Repositories.Implementation
                 list = list.Where(x => x.Status == true);
             }
 
-            return list.Select(x => new FoodCategoryVM() 
+            return list.Select(x => new FoodCategoryVM()
             {
-                Foods = x.Foods.Select(a => new FoodVM() 
+                Foods = x.Foods.Select(a => new FoodVM()
                 {
                     Description = a.Description,
                     FoodCategoryId = a.FoodCategoryId,
@@ -161,6 +160,33 @@ namespace Repositories.Implementation
             })
             .OrderBy(x => x.Name)
             .ToPagedList(page, pageSize);
+        }
+
+        public List<FoodCategoryVM> DisplayFoodCategories()
+        {
+            var list = _context.FoodCategories
+                .Where(x => x.Status != Common.CommonStatus.Delete)
+                .OrderBy(x => x.Name)
+                .Select(x => new FoodCategoryVM()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Status = x.Status,
+                    Foods = x.Foods
+                    .Where(a => a.Status != CommonStatus.Delete)
+                    .OrderBy(a => Guid.NewGuid()).Take(3)
+                    .Select(a => new FoodVM()
+                    {
+                        Status = a.Status,
+                        Description = a.Description,
+                        Image = a.Image,
+                        FoodCategoryId = a.FoodCategoryId,
+                        Id = a.Id,
+                        Price = a.Price,
+                        Name = a.Name
+                    }).ToList()
+                }).ToList();
+            return list;
         }
     }
 }

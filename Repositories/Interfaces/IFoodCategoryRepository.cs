@@ -17,5 +17,6 @@ namespace Repositories.Interfaces
         void Create(FoodCategoryVM model);
         void Delete(long id);
         List<FoodCategoryVM> DropdownList();
+        List<FoodCategoryVM> DisplayFoodCategories();
     }
 }
