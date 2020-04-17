@@ -55,6 +55,24 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            try
+            {
+                ViewBag.IsAdmin = _userRepository.IsAdmin(User.Identity.Name);
+                ViewBag.WelComeMessage = _designRepository.DisplayWelcome("Welcome");
+                ViewBag.Info = _designRepository.DisplayInfo("Info");
+                return View();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.IsAdmin = false;
+                ViewBag.WelComeMessage = CommonData.DisplayWelcome;
+                ViewBag.Info = CommonData.DisplayInfo;
+                return View();
+            }
+        }
+
         [ChildActionOnly]
         public ActionResult Banner()
         {
@@ -126,7 +144,7 @@ namespace WebApp.Controllers
         }
 
         [ChildActionOnly]
-        public ActionResult Menu()
+        public ActionResult Menus()
         {
             try
             {

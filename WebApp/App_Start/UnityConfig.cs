@@ -26,9 +26,7 @@ namespace WebApp.App_Start
         {
             container.AddNewExtension<DependencyExtension>();
             container.RegisterType<Controllers.AccountController>(new InjectionConstructor());
-            //container.RegisterType<Controllers.ManageController>(new InjectionConstructor());
             container.RegisterType<Controllers.RoleController>(new InjectionConstructor());
-            //container.RegisterType<UsersAdminController>(new InjectionConstructor());
         }
     }
 }

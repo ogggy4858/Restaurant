@@ -725,6 +725,7 @@
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Views\Viewer\NotFoundPage.cshtml" />
     <Content Include="Views\Viewer\Logged.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

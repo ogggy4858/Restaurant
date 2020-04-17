@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="home-slider owl-carousel img" style="background-image: url(../../assets/images/bg_1.jpg);">
+
+    <div class="slider-item" style="background-image: url(images/bg_3.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Menu</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Menu</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    @{
+        Html.RenderAction("HotMenu", "Home");
+        Html.RenderAction("Menus", "Home");
+    }
+</section>
+
+<section class="ftco-menu">
+    @{
+        Html.RenderAction("FoodCategory", "Home");
+    }
+</section>
+
