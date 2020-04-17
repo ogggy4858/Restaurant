@@ -1,4 +1,8 @@
-﻿<!doctype html>
+﻿@{ 
+    string actionInterfaceName = ViewBag.ActionInterfaceName as string;
+}
+
+<!doctype html>
 <html lang="en">
 <head>
     <title>Quản trị hệ thống</title>
@@ -19,19 +23,19 @@
                     Quản lý dữ liệu
                 </h4>
                 <ul class="list-unstyled components mb-5">
-                    <li>
+                    <li class=" @(ViewBag.ActionName == "User" ? "active" : "") ">
                         <a href="~/Admin/User/Index">User</a>
                     </li>
-                    <li>
+                    <li class=" @(ViewBag.ActionName == "Menu" ? "active" : "") ">
                         <a href="~/Admin/Menu/Index">Menu</a>
                     </li>
-                    <li>
+                    <li class=" @(ViewBag.ActionName == "HotMenu" ? "active" : "") ">
                         <a href="~/Admin/HotMenu/Index">Hot menu</a>
                     </li>
-                    <li>
+                    <li class=" @(ViewBag.ActionName == "Food" ? "active" : "") ">
                         <a href="~/Admin/Food/Index">Food</a>
                     </li>
-                    <li>
+                    <li class=" @(ViewBag.ActionName == "FoodCategory" ? "active" : "") ">
                         <a href="~/Admin/FoodCategory/Index">Food category</a>
                     </li>
                 </ul>
@@ -39,31 +43,31 @@
                     Quản lý giao diện
                 </h4>
                 <ul class="list-unstyled components mb-5">
-                    <li>
+                    <li class="@(actionInterfaceName == "Banner" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Banner">Banner</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Info1" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Info">Info Top</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Welcome" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Welcome">Welcome</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Service" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Service">Service</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Menu1" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/HotMenu">HotMenu</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Menu2" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Menu">Menu</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Image" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/Image">Image</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "Info2" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/SynthesizeInfo">Info Bottom</a>
                     </li>
-                    <li>
+                    <li class="@(actionInterfaceName == "FoodCategory" ? "active" : "") ">
                         <a href="~/Admin/InterfaceManager/FoodCategory">FoodCategory</a>
                     </li>
                 </ul>

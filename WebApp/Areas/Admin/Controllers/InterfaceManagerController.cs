@@ -24,6 +24,7 @@ namespace WebApp.Areas.Admin.Controllers
         // GET: Admin/InterfaceManager
         public ActionResult Banner(int page = 1, int pageSize = 5)
         {
+            ViewBag.ActionInterfaceName = "Banner";
             var list = _designRepository.GetList("Banner", page, pageSize);
             return View(list);
         }
@@ -31,12 +32,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult BannerCreate()
         {
+            ViewBag.ActionInterfaceName = "Banner";
             return View();
         }
 
         [HttpPost]
         public ActionResult BannerCreate(DesignVM model, HttpPostedFileBase image)
         {
+            ViewBag.ActionInterfaceName = "Banner";
             try
             {
                 if (string.IsNullOrEmpty(model.Quote))
@@ -89,6 +92,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult Info()
         {
+            ViewBag.ActionInterfaceName = "Info1";
             var list = _designRepository.GetList("Info", true);
             return View(list);
         }
@@ -96,12 +100,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult InfoCreate()
         {
+            ViewBag.ActionInterfaceName = "Info1";
             return View();
         }
 
         [HttpPost]
         public ActionResult InfoCreate(string phone, string phoneDescription, string address, string addressDescription, string openHour, string openHourDescription)
         {
+            ViewBag.ActionInterfaceName = "Info1";
             ViewBag.Phone = phone;
             ViewBag.PhoneDescription = phoneDescription;
             ViewBag.Address = address;
@@ -153,6 +159,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult Welcome(int page = 1, int pageSize = 5)
         {
+            ViewBag.ActionInterfaceName = "Welcome";
             var list = _designRepository.GetList("Welcome", page, pageSize);
             return View(list);
         }
@@ -160,12 +167,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult WelcomeCreate()
         {
+            ViewBag.ActionInterfaceName = "Welcome";
             return View();
         }
 
         [HttpPost]
         public ActionResult WelcomeCreate(DesignVM model, HttpPostedFileBase image)
         {
+            ViewBag.ActionInterfaceName = "Welcome";
             try
             {
                 if (string.IsNullOrEmpty(model.Title))
@@ -206,6 +215,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult Service()
         {
+            ViewBag.ActionInterfaceName = "Service";
             var list = _designRepository.GetList("Service", true);
             return View(list);
         }
@@ -213,12 +223,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult ServiceCreate()
         {
+            ViewBag.ActionInterfaceName = "Service";
             return View();
         }
 
         [HttpPost]
         public ActionResult ServiceCreate(string title, string description, string title1, string description1, string title2, string description2, string title3, string description3)
         {
+            ViewBag.ActionInterfaceName = "Service";
             ViewBag.TitleMain = title;
             ViewBag.DescriptionMain = description;
             ViewBag.Title1 = title1;
@@ -278,6 +290,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult HotMenu(int page = 1, int pageSize = 10)
         {
+            ViewBag.ActionInterfaceName = "Menu1";
             var list = _designRepository.GetList("HotMenu", page, pageSize);
             return View(list);
         }
@@ -285,12 +298,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult HotMenuCreate()
         {
+            ViewBag.ActionInterfaceName = "Menu1";
             return View();
         }
 
         [HttpPost]
         public ActionResult HotMenuCreate(DesignVM model)
         {
+            ViewBag.ActionInterfaceName = "Menu1";
             try
             {
                 if (model == null)
@@ -329,6 +344,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult Menu(int page = 1, int pageSize = 10)
         {
+            ViewBag.ActionInterfaceName = "Menu2";
             var list = _designRepository.GetList("Menu", page, pageSize);
             return View(list);
         }
@@ -336,12 +352,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult MenuCreate()
         {
+            ViewBag.ActionInterfaceName = "Menu2";
             return View();
         }
 
         [HttpPost]
         public ActionResult MenuCreate(DesignVM model)
         {
+            ViewBag.ActionInterfaceName = "Menu2";
             try
             {
                 if (model == null)
@@ -380,6 +398,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult Image(int page = 1, int pageSize = 5)
         {
+            ViewBag.ActionInterfaceName = "Image";
             var list = _designRepository.GetList("Image", page, pageSize);
             return View(list);
         }
@@ -387,15 +406,17 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult ImageCreate()
         {
+            ViewBag.ActionInterfaceName = "Image";
             return View();
         }
 
         [HttpPost]
-        public ActionResult ImageCreate(HttpPostedFileBase image1, HttpPostedFileBase image2, 
-            HttpPostedFileBase image3, HttpPostedFileBase image4, 
-            HttpPostedFileBase image5, HttpPostedFileBase image6, 
+        public ActionResult ImageCreate(HttpPostedFileBase image1, HttpPostedFileBase image2,
+            HttpPostedFileBase image3, HttpPostedFileBase image4,
+            HttpPostedFileBase image5, HttpPostedFileBase image6,
             HttpPostedFileBase image7, HttpPostedFileBase image8)
         {
+            ViewBag.ActionInterfaceName = "Image";
             try
             {
                 if (image1 == null)
@@ -431,7 +452,7 @@ namespace WebApp.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Bạn phải chọn hình ảnh 8");
                 }
 
-                if (image1 != null && image2 != null && image3 != null && image4 != null 
+                if (image1 != null && image2 != null && image3 != null && image4 != null
                     && image5 != null && image6 != null && image7 != null && image8 != null)
                 {
                     var imageId = _designRepository.Create(new DesignVM()
@@ -463,7 +484,7 @@ namespace WebApp.Areas.Admin.Controllers
 
                 return View();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
                 return View();
@@ -472,6 +493,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult SynthesizeInfo()
         {
+            ViewBag.ActionInterfaceName = "Info2";
             var list = _designRepository.GetList("SynthesizeInfo", true);
             return View(list);
         }
@@ -479,12 +501,14 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult SynthesizeInfoCreate()
         {
+            ViewBag.ActionInterfaceName = "Info2";
             return View();
         }
 
         [HttpPost]
         public ActionResult SynthesizeInfoCreate(string title, string description, string title1, string description1, string title2, string description2, HttpPostedFileBase image)
         {
+            ViewBag.ActionInterfaceName = "Info2";
             ViewBag.TitleMain = title;
             ViewBag.DescriptionMain = description;
             ViewBag.Title1 = title1;
@@ -494,7 +518,7 @@ namespace WebApp.Areas.Admin.Controllers
 
             try
             {
-                if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(title1) || string.IsNullOrWhiteSpace(description1) || 
+                if (string.IsNullOrWhiteSpace(title) || string.IsNullOrWhiteSpace(description) || string.IsNullOrWhiteSpace(title1) || string.IsNullOrWhiteSpace(description1) ||
                     string.IsNullOrWhiteSpace(title2) || string.IsNullOrWhiteSpace(description2))
                 {
                     ModelState.AddModelError("", "Dữ liệu không được để trống");
@@ -518,7 +542,7 @@ namespace WebApp.Areas.Admin.Controllers
                     Content = description2
                 }, "SynthesizeInfo", false);
 
-                if(image != null)
+                if (image != null)
                 {
                     var fileName = SaveImage(image);
                     _documentRepository.CreateForDesign(fileName, id1);
@@ -528,7 +552,7 @@ namespace WebApp.Areas.Admin.Controllers
 
                 return RedirectToAction("SynthesizeInfo");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
                 return View();
@@ -537,6 +561,7 @@ namespace WebApp.Areas.Admin.Controllers
 
         public ActionResult FoodCategory(int page = 1, int pageSize = 5)
         {
+            ViewBag.ActionInterfaceName = "FoodCategory";
             var list = _designRepository.GetList("FoodCategory", page, pageSize, null);
             return View(list);
         }
@@ -544,15 +569,17 @@ namespace WebApp.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult FoodCategoryCreate()
         {
+            ViewBag.ActionInterfaceName = "FoodCategory";
             return View();
         }
 
         [HttpPost]
         public ActionResult FoodCategoryCreate(HttpPostedFileBase image)
         {
+            ViewBag.ActionInterfaceName = "FoodCategory";
             try
             {
-                if(image != null)
+                if (image != null)
                 {
                     ModelState.AddModelError("", "Hình ảnh là bắt buộc");
                 }
@@ -566,7 +593,7 @@ namespace WebApp.Areas.Admin.Controllers
                 _documentRepository.CreateForDesign(fileName, designId);
                 return RedirectToAction("FoodCategory");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("", "Có lỗi sảy ra, vui lòng thử lại sau");
                 return View();

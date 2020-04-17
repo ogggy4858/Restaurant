@@ -18,6 +18,9 @@ namespace WebApp.Areas.Admin.Controllers
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            var url = System.Web.HttpContext.Current.Request.Url.AbsolutePath;
+            ViewBag.ActionName = url.Split('/')[2];
+
             bool isAdmin = _userRepository.IsAdmin(User.Identity.Name);
             if (Request.IsAuthenticated == false || isAdmin == false)
             {
