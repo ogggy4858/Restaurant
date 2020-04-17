@@ -332,6 +332,7 @@
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\feebBack.js" />
     <Content Include="assets\js\google-map.js" />
+    <Content Include="assets\js\instafeed.min.js" />
     <Content Include="assets\js\jquery-3.2.1.min.js" />
     <Content Include="assets\js\jquery-migrate-3.0.1.min.js" />
     <Content Include="assets\js\jquery.animateNumber.min.js" />
@@ -346,6 +347,7 @@
     <Content Include="assets\js\popper.min.js" />
     <Content Include="assets\js\range.js" />
     <Content Include="assets\js\scrollax.min.js" />
+    <Content Include="assets\js\shareOnFacebook.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="assets\css\.DS_Store" />
