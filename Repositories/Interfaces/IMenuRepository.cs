@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Interfaces
 {
@@ -9,7 +10,7 @@ namespace Repositories.Interfaces
     {
         MenuVM DetailViewModel(Guid id);
         Menu Detail(Guid id);
-        List<MenuVM> List();
+        IPagedList<MenuVM> GetList(int page = 1, int pageSize = 10);
         void Create(MenuVM model);
         void Edit(MenuVM model);
         void DeleteAll();

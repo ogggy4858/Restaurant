@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<ViewModels.MenuVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
+
 
 @{
     ViewBag.Title = "Quản lý Menu";
@@ -46,66 +49,33 @@
     @foreach (var item in Model)
     {
         <tr>
-            @if (item.Status == Common.CommonStatus.Active)
-            {
-                <td>
-                    <b>@Html.DisplayFor(modelItem => item.Food.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food1.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food2.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food3.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food4.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food5.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food6.Name)</b>
-                </td>
-                <td>
-                    <b> @Html.DisplayFor(modelItem => item.Food7.Name)</b>
-                </td>
-                <td>
-                    <b> @Common.CommonStatus.StatusDisplay[item.Status] </b>
-                </td>
-            }
-            else
-            {
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food1.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food2.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food3.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food4.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food5.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food6.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Food7.Name)
-                </td>
-                <td>
-                    @Common.CommonStatus.StatusDisplay[item.Status]
-                </td>
-            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food2.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food3.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food4.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food5.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food6.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food7.Name)
+            </td>
+            <td>
+                @Common.CommonStatus.StatusDisplay[item.Status]
+            </td>
             <td>
                 <button type="button" data-id="@item.Id" class="btn btn-info">
                     @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
@@ -125,8 +95,17 @@
             </td>
         </tr>
     }
-
 </table>
+
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
+
 @section scripts{
     <script src="~/Areas/Admin/Libraries/js/Menu.js"></script>
 }

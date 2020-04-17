@@ -10,6 +10,7 @@ namespace WebApp.Areas.Admin.Controllers
     public class BasedController : Controller
     {
         private readonly IUserRepository _userRepository;
+
         public BasedController()
         {
             _userRepository = DependencyResolver.Current.GetService<IUserRepository>();
@@ -25,9 +26,5 @@ namespace WebApp.Areas.Admin.Controllers
             base.OnActionExecuting(filterContext);
         }
 
-        public ActionResult NotFountPage()
-        {
-            return View();
-        }
     }
 }

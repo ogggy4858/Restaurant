@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Interfaces
 {
@@ -12,7 +13,7 @@ namespace Repositories.Interfaces
     {
         HotMenuVM DetailViewModel(Guid id);
         HotMenu Detail(Guid id);
-        List<HotMenuVM> List();
+        IPagedList<HotMenuVM> GetList(int page = 1, int pageSize = 10);
         void Create(HotMenuVM model);
         void Edit(HotMenuVM model);
         void DeleteAll();

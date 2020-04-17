@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Implementation
 {
@@ -248,7 +249,7 @@ namespace Repositories.Implementation
             _context.SaveChanges();
         }
 
-        public List<MenuVM> List()
+        public IPagedList<MenuVM> GetList(int page = 1, int pageSize = 10)
         {
             return _context.Menus.Select(x => new MenuVM()
             {
@@ -394,7 +395,7 @@ namespace Repositories.Implementation
 
             })
             .OrderBy(x => x.CreateDate)
-            .ToList();
+            .ToPagedList(page, pageSize);
         }
 
         public MenuVM DisplayMenu()

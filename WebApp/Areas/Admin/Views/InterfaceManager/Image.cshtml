@@ -1,6 +1,6 @@
-﻿
-@model List<ViewModels.DesignVM>
-
+﻿@model IEnumerable<ViewModels.DesignVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
 @{
     ViewBag.Title = "Image";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -14,6 +14,7 @@
 
 <table class="table">
     <tr>
+        <th>Status</th>
         <th>Hình ảnh 1</th>
         <th>Hình ảnh 2</th>
         <th>Hình ảnh 3</th>
@@ -22,18 +23,11 @@
         <th>Hình ảnh 6</th>
         <th>Hình ảnh 7</th>
         <th>Hình ảnh 8</th>
-        <th>Status</th>
         <th></th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
-            @foreach (var it in item.Documents)
-            {
-                <td>
-                    <img src="~/Areas/Admin/Libraries/images/@it.FileName" style="width: 300px; height: auto">
-                </td>
-            }
             @if (item.Status == Common.CommonStatus.Active)
             {
                 <td>
@@ -46,10 +40,23 @@
                     <button type="button" data-id="@item.Id" class="btn btn-success set-active">Áp dụng</button>
                 </td>
             }
+            @foreach (var it in item.Documents)
+            {
+                <td>
+                    <img src="~/Areas/Admin/Libraries/images/@it.FileName" style="width: 300px; height: auto">
+                </td>
+            }
         </tr>
     }
 </table>
-
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Image", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
 @section scripts{
     <script src="~/Areas/Admin/Libraries/js/image.js"></script>
 }

@@ -20,9 +20,9 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/Menu
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            var list = _hotMenuRepository.List();
+            var list = _hotMenuRepository.GetList(page, pageSize);
             return View(list);
         }
 

@@ -17,9 +17,9 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/User
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            var list = _userRepository.GetList();
+            var list = _userRepository.GetList(page, pageSize);
             return View(list);
         }
 

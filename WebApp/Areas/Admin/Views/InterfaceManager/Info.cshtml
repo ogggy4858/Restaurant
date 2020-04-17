@@ -1,5 +1,6 @@
 ﻿@model List<ViewModels.DesignVM>
 
+
 @{
     ViewBag.Title = "Quản lý giao diện: Info";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -20,7 +21,7 @@
     </tr>
 
     <tr>
-        @if (Model.Count != 0)
+        @if (Model.Count() != 0)
         {
             <td>
                 @Model[0].Title <br />

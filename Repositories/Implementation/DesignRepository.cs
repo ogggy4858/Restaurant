@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Implementation
 {
@@ -68,6 +69,44 @@ namespace Repositories.Implementation
             _context.SaveChanges();
         }
 
+        public IPagedList<DesignVM> GetList(string categoryName, int page = 1, int pageSize = 10, bool? status = null)
+        {
+            var listQuery = _context.Designs
+                .Where(x => x.DesignCategory.Name == categoryName);
+
+            if (status != null)
+            {
+                listQuery = listQuery.Where(x => x.Status == status);
+            }
+
+            return listQuery.Select(x => new DesignVM()
+            {
+                Content = x.Content,
+                CreateDate = x.CreateDate,
+                DesignCategoryId = x.DesignCategoryId,
+                Id = x.Id,
+                Quote = x.Quote,
+                Status = x.Status,
+                Title = x.Title,
+                DesignCategory = new DesignCategoryVM()
+                {
+                    Status = x.DesignCategory.Status,
+                    Id = x.DesignCategory.Id,
+                    Name = x.DesignCategory.Name
+                },
+                Documents = x.Documents.Select(a => new DocumentVM()
+                {
+                    Id = a.Id,
+                    DesignId = a.DesignId,
+                    FileName = a.FileName,
+                    FeedBackId = a.FeedBackId,
+                    Stauts = a.Stauts
+                }).ToList()
+            })
+            .OrderBy(x => x.CreateDate)
+            .ToPagedList(page, pageSize);
+        }
+
         public List<DesignVM> GetList(string categoryName, bool? status = null)
         {
             var listQuery = _context.Designs
@@ -102,8 +141,8 @@ namespace Repositories.Implementation
                     Stauts = a.Stauts
                 }).ToList()
             })
-                .OrderBy(x => x.CreateDate)
-                .ToList();
+            .OrderBy(x => x.CreateDate)
+            .ToList();
         }
 
         public DesignVM DisplayBanner(string categoryName)
@@ -439,7 +478,7 @@ namespace Repositories.Implementation
                 return "about.jpg";
             }
 
-            if(viewModel.Documents.FirstOrDefault() == null)
+            if (viewModel.Documents.FirstOrDefault() == null)
             {
                 return "about.jpg";
             }

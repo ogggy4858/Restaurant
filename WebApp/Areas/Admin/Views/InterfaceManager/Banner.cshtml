@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<ViewModels.DesignVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
 
 @{
     ViewBag.Title = "Quản lý giao diện: Banner";
@@ -48,7 +50,14 @@
     }
 
 </table>
-
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Banner", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
 @section scripts{
     <script src="~/Areas/Admin/Libraries/js/interfaceManager.js"></script>
 }

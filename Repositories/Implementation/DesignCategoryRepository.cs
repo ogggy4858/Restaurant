@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Implementation
 {
@@ -81,7 +82,7 @@ namespace Repositories.Implementation
             _context.SaveChanges();
         }
 
-        public List<DesignCategoryVM> GetList()
+        public IPagedList<DesignCategoryVM> GetList(int page = 1, int pageSize = 10)
         {
             return _context.DesignCategories
                 .Where(x => x.Status != Common.CommonStatus.Delete)
@@ -90,7 +91,9 @@ namespace Repositories.Implementation
                     Status = x.Status,
                     Id = x.Id,
                     Name = x.Name
-                }).ToList();
+                })
+                .OrderBy(x => x.Status)
+                .ToPagedList(page, pageSize);
         }
     }
 }

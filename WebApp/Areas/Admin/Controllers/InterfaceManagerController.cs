@@ -22,9 +22,9 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/InterfaceManager
-        public ActionResult Banner()
+        public ActionResult Banner(int page = 1, int pageSize = 5)
         {
-            var list = _designRepository.GetList("Banner");
+            var list = _designRepository.GetList("Banner", page, pageSize);
             return View(list);
         }
 
@@ -151,9 +151,9 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult Welcome()
+        public ActionResult Welcome(int page = 1, int pageSize = 5)
         {
-            var list = _designRepository.GetList("Welcome");
+            var list = _designRepository.GetList("Welcome", page, pageSize);
             return View(list);
         }
 
@@ -276,9 +276,9 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult HotMenu()
+        public ActionResult HotMenu(int page = 1, int pageSize = 10)
         {
-            var list = _designRepository.GetList("HotMenu");
+            var list = _designRepository.GetList("HotMenu", page, pageSize);
             return View(list);
         }
 
@@ -327,9 +327,9 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult Menu()
+        public ActionResult Menu(int page = 1, int pageSize = 10)
         {
-            var list = _designRepository.GetList("Menu");
+            var list = _designRepository.GetList("Menu", page, pageSize);
             return View(list);
         }
 
@@ -378,9 +378,9 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-        public ActionResult Image()
+        public ActionResult Image(int page = 1, int pageSize = 5)
         {
-            var list = _designRepository.GetList("Image");
+            var list = _designRepository.GetList("Image", page, pageSize);
             return View(list);
         }
 
@@ -535,10 +535,9 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
-
-        public ActionResult FoodCategory()
+        public ActionResult FoodCategory(int page = 1, int pageSize = 5)
         {
-            var list = _designRepository.GetList("FoodCategory");
+            var list = _designRepository.GetList("FoodCategory", page, pageSize, null);
             return View(list);
         }
 
@@ -573,7 +572,6 @@ namespace WebApp.Areas.Admin.Controllers
                 return View();
             }
         }
-
 
         [HttpPost]
         public JsonResult Active(Guid id, string categoryName)

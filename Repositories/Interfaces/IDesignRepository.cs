@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Interfaces
 {
@@ -11,6 +12,7 @@ namespace Repositories.Interfaces
     {
         // banner
         Guid Create(DesignVM model, string categoryName, bool isDelete = true);
+        IPagedList<DesignVM> GetList(string categoryName, int page = 1, int pageSize = 10, bool? status = null);
         List<DesignVM> GetList(string categoryName, bool? status = null);
         DesignVM DisplayBanner(string categoryName);
         void DeleteByCategory(string designCategoryName);

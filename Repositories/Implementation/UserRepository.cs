@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using ViewModels;
+using X.PagedList;
 
 namespace Repositories.Implementation
 {
@@ -20,7 +21,7 @@ namespace Repositories.Implementation
             _context = context;
         }
 
-        public List<UserVM> GetList()
+        public IPagedList<UserVM> GetList(int page = 1, int pageSize = 10)
         {
             return _context.Users
                 .OrderBy(x => x.Id)
@@ -44,7 +45,9 @@ namespace Repositories.Implementation
                         Id = a.Id,
                         Name = a.Name
                     }).ToList()
-                }).ToList();
+                })
+                .OrderBy(x => x.UserName)
+                .ToPagedList(page, pageSize);
         }
 
         public void RemoveRole(string userId)

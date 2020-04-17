@@ -19,9 +19,9 @@ namespace WebApp.Areas.Admin.Controllers
         }
 
         // GET: Admin/DesignCategory
-        public ActionResult Index()
+        public ActionResult Index(int page = 1)
         {
-            var list = _designCategoryRepository.GetList();
+            var list = _designCategoryRepository.GetList(page);
             return View(list);
         }
 
