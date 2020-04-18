@@ -280,6 +280,197 @@ namespace Repositories.StaticData
             }
         };
 
+        public static List<FoodCategoryVM> DisplayFoodCategoryMenu = new List<FoodCategoryVM>()
+        {
+            new FoodCategoryVM()
+            {
+                Name = "Món ăn",
+                Id = 1
+            },
+            new FoodCategoryVM()
+            {
+                Name = "Món khai vị",
+                Id = 2
+            },
+            new FoodCategoryVM()
+            {
+                Name = "Đồ uống",
+                Id = 3
+            }
+        };
+
+        public static List<FoodVM> DisplayFoodMenu = new List<FoodVM>()
+        {
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 2,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 3,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            },
+            new FoodVM()
+            {
+                FoodCategoryId = 1,
+                Image = "undefined-nha-hang-khiem-hoa-ma-0-e7ee9f60637121871738254689.jpg",
+                Name = "Món ăn 1",
+                Description = "Món ăn này được bàn tay của đầu bếp nấu cỗ 29 chế biến vô cùng đơn giản nhưng ăn một lần là nhớ mãi đó nhé."
+            }
+        };
+
         public static string DisplayImageFoodCategory = "about.jpg";
     }
 }

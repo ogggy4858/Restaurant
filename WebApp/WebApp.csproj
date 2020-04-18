@@ -330,7 +330,6 @@
     <Content Include="assets\js\aos.js" />
     <Content Include="assets\js\bootstrap-datepicker.js" />
     <Content Include="assets\js\bootstrap.min.js" />
-    <Content Include="assets\js\feebBack.js" />
     <Content Include="assets\js\google-map.js" />
     <Content Include="assets\js\instafeed.min.js" />
     <Content Include="assets\js\jquery-3.2.1.min.js" />
@@ -462,6 +461,7 @@
     <Content Include="assets\scss\bootstrap\_variables.scss" />
     <Content Include="assets\scss\style.scss" />
     <Content Include="assets\prepros-6.config" />
+    <Content Include="Scripts\home.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -573,7 +573,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="fonts\" />
-    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\web.config" />

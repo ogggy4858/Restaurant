@@ -1,5 +1,6 @@
 ﻿using Models;
 using Repositories.Interfaces;
+using Repositories.StaticData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +64,7 @@ namespace Repositories.Implementation
         private long GetNextOrder()
         {
             var max = _context.Foods.OrderByDescending(x => x.OrderIndex).FirstOrDefault();
-            if(max == null)
+            if (max == null)
             {
                 return 1;
             }
@@ -191,6 +192,28 @@ namespace Repositories.Implementation
             })
             .OrderBy(x => x.OrderIndex)
             .ToPagedList(page, pageSize);
+        }
+
+        public List<FoodVM> GetList(long foodCategoryId)
+        {
+            var list = _context.Foods.Where(x => x.Status == Common.CommonStatus.Active && x.FoodCategoryId == foodCategoryId)
+                .Select(x => new FoodVM()
+                {
+                    Status = x.Status,
+                    CreateDate = x.CreateDate,
+                    Description = x.Description,
+                    FoodCategoryId = x.FoodCategoryId,
+                    Id = x.Id,
+                    Image = x.Image,
+                    Name = x.Name,
+                    Price = x.Price
+                }).ToList();
+            if(list == null)
+            {
+                return CommonData.DisplayFoodMenu;
+            }
+
+            return list;
         }
     }
 }

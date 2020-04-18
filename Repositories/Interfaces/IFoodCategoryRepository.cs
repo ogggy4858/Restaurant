@@ -18,5 +18,6 @@ namespace Repositories.Interfaces
         void Delete(long id);
         List<FoodCategoryVM> DropdownList();
         List<FoodCategoryVM> DisplayFoodCategories();
+        List<FoodCategoryVM> GetList();
     }
 }

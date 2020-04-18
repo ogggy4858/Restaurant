@@ -188,14 +188,31 @@ namespace Repositories.Implementation
                     }).ToList()
                 }).ToList();
 
-            if(list == null)
+            if (list == null)
             {
                 return CommonData.DisplayFoodCategory;
             }
 
-            if(list.Count == 0)
+            if (list.Count == 0)
             {
                 return CommonData.DisplayFoodCategory;
+            }
+
+            return list;
+        }
+
+        public List<FoodCategoryVM> GetList()
+        {
+            var list = _context.FoodCategories.Where(x => x.Status == Common.CommonStatus.Active)
+                .Select(x => new FoodCategoryVM()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Status = x.Status
+                }).ToList();
+            if(list == null)
+            {
+                return CommonData.DisplayFoodCategoryMenu;
             }
 
             return list;

@@ -18,5 +18,6 @@ namespace Repositories.Interfaces
         FoodVM DetailViewModel(Guid id);
         IPagedList<FoodVM> GetList(string searchKey = "", bool? status = null, int page = 1, int pageSize = 10);
         List<FoodVM> GetList();
+        List<FoodVM> GetList(long foodCategoryId);
     }
 }

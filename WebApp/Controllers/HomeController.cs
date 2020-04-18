@@ -19,15 +19,17 @@ namespace WebApp.Controllers
         private readonly IHotMenuRepository _hotMenuRepository;
         private readonly IMenuRepository _menuRepository;
         private readonly IFoodCategoryRepository _foodCategoryRepository;
+        private readonly IFoodRepository _foodRepository;
         private static readonly List<string> ImageExtensions = new List<string> { ".JPG", ".JPE", ".BMP", ".GIF", ".PNG", ".JFIF", ".RAW", ".JPEG" };
 
-        public HomeController(IUserRepository userRepository, 
-            IFeedBackRepository feedBackRepository, 
-            IDocumentRepository documentRepository, 
-            IDesignRepository designRepository, 
+        public HomeController(IUserRepository userRepository,
+            IFeedBackRepository feedBackRepository,
+            IDocumentRepository documentRepository,
+            IDesignRepository designRepository,
             IHotMenuRepository hotMenuRepository,
             IMenuRepository menuRepository,
-            IFoodCategoryRepository foodCategoryRepository)
+            IFoodCategoryRepository foodCategoryRepository,
+            IFoodRepository foodRepository)
         {
             _userRepository = userRepository;
             _feedBackRepository = feedBackRepository;
@@ -36,6 +38,7 @@ namespace WebApp.Controllers
             _hotMenuRepository = hotMenuRepository;
             _menuRepository = menuRepository;
             _foodCategoryRepository = foodCategoryRepository;
+            _foodRepository = foodRepository;
         }
 
         public ActionResult Index()
@@ -46,7 +49,7 @@ namespace WebApp.Controllers
                 ViewBag.WelComeMessage = _designRepository.DisplayWelcome("Welcome");
                 ViewBag.Info = _designRepository.DisplayInfo("Info");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ViewBag.IsAdmin = false;
                 ViewBag.WelComeMessage = CommonData.DisplayWelcome;
@@ -55,6 +58,7 @@ namespace WebApp.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult Menu()
         {
             try
@@ -62,6 +66,8 @@ namespace WebApp.Controllers
                 ViewBag.IsAdmin = _userRepository.IsAdmin(User.Identity.Name);
                 ViewBag.WelComeMessage = _designRepository.DisplayWelcome("Welcome");
                 ViewBag.Info = _designRepository.DisplayInfo("Info");
+
+                ViewBag.FoodCategory = _foodCategoryRepository.GetList();
                 return View();
             }
             catch (Exception ex)
@@ -70,6 +76,37 @@ namespace WebApp.Controllers
                 ViewBag.WelComeMessage = CommonData.DisplayWelcome;
                 ViewBag.Info = CommonData.DisplayInfo;
                 return View();
+            }
+        }
+
+        [HttpPost]
+        public JsonResult ReloadMenu(long? foodCategoryId)
+        {
+            try
+            {
+                var listFoodCategory = _foodCategoryRepository.GetList();
+                if (foodCategoryId == null)
+                {
+                    return Json(
+                    new
+                    {
+                        Status = true,
+                        Data = _foodRepository.GetList(listFoodCategory.FirstOrDefault().Id)
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json(
+                    new
+                    {
+                        Status = true,
+                        Data = _foodRepository.GetList(Convert.ToInt64(foodCategoryId))
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Stats = false, Data = "" }, JsonRequestBehavior.AllowGet);
             }
         }
 
