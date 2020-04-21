@@ -130,7 +130,9 @@ namespace Repositories.Implementation
 
         public List<FoodVM> GetList()
         {
-            return _context.Foods.Select(x => new FoodVM()
+            return _context.Foods
+                .Where(x => x.Status == Common.CommonStatus.Active)
+                .Select(x => new FoodVM()
             {
                 Name = x.Name,
                 Id = x.Id,
