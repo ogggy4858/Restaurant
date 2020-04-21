@@ -3,11 +3,6 @@
         let url = window.location.href;
         share_fb(url);
     });
-
-    new InstagramFeed({
-        'username': 'instagram',
-        'container': "#instagram-feed-demo"
-    });
 });
 
 

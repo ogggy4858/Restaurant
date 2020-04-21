@@ -22,7 +22,7 @@
     {
         <tr>
             <td>
-                <img style="width: 550px; height: auto" src="~/Areas/Admin/Libraries/images/@item.Documents.FirstOrDefault().FileName">
+                <img style="width: 350px; height: auto" src="~/Areas/Admin/Libraries/images/@item.Documents.FirstOrDefault().FileName">
             </td>
             <td>
                 @if (item.Status == Common.CommonStatus.Active)
@@ -33,6 +33,7 @@
                 {
                     <button type="button" class="btn btn-primary btn-foodCategory-add" data-id="@item.Id">Áp dụng</button>
                 }
+                <button data-id="@item.Id" class="btn btn-danger btn-foodCategory-delete">Xóa</button>
             </td>
         </tr>
     }

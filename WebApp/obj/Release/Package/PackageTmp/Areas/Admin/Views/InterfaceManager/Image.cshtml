@@ -31,19 +31,21 @@
             @if (item.Status == Common.CommonStatus.Active)
             {
                 <td>
+                    <button data-id="@item.Id" class="btn btn-danger btn-image-delete">Xóa</button>
                     <span>Đang áp dụng</span>
                 </td>
             }
             else
             {
                 <td>
-                    <button type="button" data-id="@item.Id" class="btn btn-success set-active">Áp dụng</button>
+                    <button data-id="@item.Id" class="btn btn-danger btn-image-delete">Xóa</button>
+                    <button type="button" data-id="@item.Id" class="btn btn-success btn-image-add">Áp dụng</button>
                 </td>
             }
             @foreach (var it in item.Documents)
             {
                 <td>
-                    <img src="~/Areas/Admin/Libraries/images/@it.FileName" style="width: 300px; height: auto">
+                    <img src="~/Areas/Admin/Libraries/images/@it.FileName" style="width: 250px; height: auto">
                 </td>
             }
         </tr>
@@ -58,5 +60,5 @@
     })
 </nav>
 @section scripts{
-    <script src="~/Areas/Admin/Libraries/js/image.js"></script>
+    <script src="~/Areas/Admin/Libraries/js/interfaceManager.js"></script>
 }

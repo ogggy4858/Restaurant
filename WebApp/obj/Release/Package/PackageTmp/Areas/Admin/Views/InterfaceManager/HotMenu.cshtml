@@ -42,12 +42,9 @@
             <td>
                 @if (!item.Status)
                 {
-                    <button data-id="@item.Id" class="btn btn-primary btn-hotmenu-add">Ấp dụng</button>
+                    <button data-id="@item.Id" class="btn btn-primary btn-hotmenu-add">Áp dụng</button>
                 }
-                else
-                {
-
-                }
+                <button data-id="@item.Id" class="btn btn-danger btn-hotmenu-delete">Xóa</button>
             </td>
         </tr>
     }
