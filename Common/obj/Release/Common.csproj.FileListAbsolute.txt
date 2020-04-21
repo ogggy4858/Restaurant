@@ -1,4 +1,5 @@
 F:\khiem-restaurant\Restaurant\Common\bin\Release\Common.dll
 F:\khiem-restaurant\Restaurant\Common\bin\Release\Common.pdb
+F:\khiem-restaurant\Restaurant\Common\obj\Release\Common.csprojAssemblyReference.cache
 F:\khiem-restaurant\Restaurant\Common\obj\Release\Common.dll
 F:\khiem-restaurant\Restaurant\Common\obj\Release\Common.pdb

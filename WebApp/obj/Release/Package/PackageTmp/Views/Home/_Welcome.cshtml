@@ -1,0 +1,39 @@
+﻿@model ViewModels.DesignVM
+
+@{ 
+    string fileName = "";
+    if (Model != null)
+    {
+        if (Model.Documents == null)
+        {
+            fileName = "_a1a8429.jpg";
+        }
+        else
+        {
+            if (Model.Documents.FirstOrDefault() == null)
+            {
+                fileName = "_a1a8429.jpg";
+            }
+            else
+            {
+                fileName = Model.Documents.FirstOrDefault().FileName;
+            }
+        }
+    }
+}
+
+<section class="ftco-about d-md-flex">
+    <div class="one-half img" style="background-image: url(../../Areas/Admin/Libraries/images/@fileName);"></div>
+    <div class="one-half ftco-animate">
+        <div class="heading-section ftco-animate ">
+            <h2 class="mb-4">
+                @Model.Title
+            </h2>
+        </div>
+        <div>
+            <p>
+                @Model.Content
+            </p>
+        </div>
+    </div>
+</section>

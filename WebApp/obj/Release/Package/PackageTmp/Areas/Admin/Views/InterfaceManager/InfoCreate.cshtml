@@ -1,0 +1,73 @@
+﻿@model ViewModels.DesignVM
+
+@{
+    ViewBag.Title = "Quản lý giao diện: Info";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@section Title{
+    @ViewBag.Title
+}
+
+<h5 class="col-md-10 text-danger">Lưu ý: Nếu bạn thêm mới Info, info cũ sẽ bị xóa, giao diện sẽ nhận info mới khi bạn thêm</h5>
+
+@using (Html.BeginForm("InfoCreate", "InterfaceManager", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <span class="col-md-2">Số điện thoại</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="phone" value="@ViewBag.Phone">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Mô tả thêm về số điện thoại</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="phoneDescription" value="@ViewBag.PhoneDescription">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="col-md-2">Địa chỉ</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="address" value="@ViewBag.Address">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="col-md-2">Mô tả thêm về địa chỉ</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="addressDescription" value="@ViewBag.AddressDescription">
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <span class="col-md-2">Giờ mở cửa</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="openHour" value="@ViewBag.OpenHour">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <span class="col-md-2">Mô tả thêm về giờ mở cửa</span>
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="openHourDescription" value="@ViewBag.OpenHourDescription">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "Info")
+            </div>
+        </div>
+    </div>
+}
+

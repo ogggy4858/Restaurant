@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ViewModels.HotMenuVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý Hot menu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên món ăn 1
+        </th>
+        <th>
+            Tên món ăn 2
+        </th>
+        <th>
+            Tên món ăn 3
+        </th>
+        <th>
+            Tên món ăn 4
+        </th>
+        <th>
+            Tên món ăn 5
+        </th>
+        <th>
+            Tên món ăn 6
+        </th>
+        <th>
+            Status
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food1.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food2.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food3.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food4.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Food5.Name)
+            </td>
+            <td>
+                @Common.CommonStatus.StatusDisplay[item.Status]
+            </td>
+            <td>
+                <button type="button" data-id="@item.Id" class="btn btn-info">
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.Id })
+                </button>
+                @if (item.Status == Common.CommonStatus.Active)
+                {
+                    <button type="button" data-id="@item.Id" class="btn btn-dark">
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Id })
+                    </button>
+                }
+                else
+                {
+                    <button type="button" data-id="@item.Id" class="btn btn-primary set-active">
+                        Áp dụng
+                    </button>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
+
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/hotMenu.js"></script>
+}

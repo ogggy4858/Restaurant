@@ -1,0 +1,64 @@
+﻿@using WebApp.Models
+@model LoginViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Log in";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body style="background: url(../../Areas/Admin/Libraries/images/photo-1552336658-762c1b1d9d4b.jfif); opacity: 1">
+    <div class="container">
+        <div class="row" style="margin-top: 200px; margin-left: 50px">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <section id="loginForm">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <span style="font-size: 18px; color: white" class="col-md-2">Email</span>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span style="font-size: 18px; color: white" class="col-md-2">Mật khẩu</span>
+                            <div class="col-md-10">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <div class="checkbox">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    <span style="color: white">Nhớ tôi trên trình duyệt này?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Log in" class="btn btn-default" />
+                                @Html.ActionLink("Đăng ký tài khoản", "Register")
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+</body>
+</html>

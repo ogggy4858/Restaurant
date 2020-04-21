@@ -1,0 +1,32 @@
+﻿@model List<string>
+
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    Html.RenderAction("Banner", "Home");
+    Html.RenderAction("Info", "Home");
+    Html.RenderAction("Welcome", "Home");
+    Html.RenderAction("Service", "Home");
+}
+
+<section class="ftco-section">
+    @{
+        Html.RenderAction("HotMenu", "Home");
+        Html.RenderAction("Menus", "Home");
+    }
+</section>
+
+@{
+    Html.RenderAction("Image", "Home");
+    Html.RenderAction("SynthesizeInfo", "Home");
+    Html.RenderAction("FoodCategory", "Home");
+}
+
+<div id="fb-root"></div>
+
+@section scripts{
+    <script src="~/assets/js/shareOnFacebook.js"></script>
+}

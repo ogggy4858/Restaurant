@@ -618,6 +618,27 @@ namespace WebApp.Areas.Admin.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult Delete(Guid id)
+        {
+            try
+            {
+                if (id == null || id == Guid.Empty)
+                {
+                    return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
+                }
+                _documentRepository.Delete(id);
+                _designRepository.Delete(id);
+                return Json(new { Status = true }, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { Status = false, Message = "Có lỗi sảy ra, vui lòng thử lại sau" }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
         private List<string> SaveImage(HttpPostedFileBase[] file)
         {
             List<string> listFileName = new List<string>();

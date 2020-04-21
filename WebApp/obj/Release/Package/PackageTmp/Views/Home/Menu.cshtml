@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var listFoodCategory = ViewBag.FoodCategory as List<ViewModels.FoodCategoryVM>;
+}
+
+<section class="home-slider owl-carousel img" style="background-image: url(../../assets/images/bg_1.jpg);">
+    <div class="slider-item" style="background-image: url(../../assets/images/bg_3.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row slider-text justify-content-center align-items-center">
+                <div class="col-md-7 col-sm-12 text-center ftco-animate">
+                    <h1 class="mb-3 mt-5 bread">Menu</h1>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Menu</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    @{
+        Html.RenderAction("HotMenu", "Home");
+        <div class="container">
+
+            <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2 class="mb-4">Our Menu Pricing</h2>
+                    <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+                    <p class="mt-5">
+                        @for (int i = 0; i < listFoodCategory.Count; i++)
+                        {
+                            if (i == 0)
+                            {
+                                @*<a style="cursor: pointer" class="btn btn-white btn-outline-white p-3 px-xl-3 py-xl-2">@listFoodCategory[i].Name</a>*@
+                                <button type="button" data-id="@listFoodCategory[i].Id" class="btn-submit btn btn-white btn-outline-white">@listFoodCategory[i].Name</button>
+                            }
+                            else
+                            {
+                                @*<a style="cursor: pointer" class="btn btn-white btn-outline-white p-3 px-xl-3 py-xl-2">@listFoodCategory[i].Name</a>*@
+                                <button type="button" data-id="@listFoodCategory[i].Id" class="btn-submit btn btn-white btn-outline-white">@listFoodCategory[i].Name</button>
+                            }
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="col1">
+                    @*<div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/pizza-1.jpg);"></div>
+                        <div class="desc pl-3">
+                            <div class="d-flex text align-items-center">
+                                <h3><span>Italian Pizza</span></h3>
+                                <span class="price">$20.00</span>
+                            </div>
+                            <div class="d-block">
+                                <p>A small river named Duden flows by their place and supplies</p>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+
+                <div class="col-md-6" id="col2">
+                    @*<div class="pricing-entry d-flex ftco-animate">
+                        <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/pizza-1.jpg);"></div>
+                        <div class="desc pl-3">
+                            <div class="d-flex text align-items-center">
+                                <h3><span>Italian Pizza</span></h3>
+                                <span class="price">$20.00</span>
+                            </div>
+                            <div class="d-block">
+                                <p>A small river named Duden flows by their place and supplies</p>
+                            </div>
+                        </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+    }
+</section>
+
+
+
+@section scripts{
+    <script src="~/Scripts/home.js"></script>
+}

@@ -25,5 +25,6 @@ namespace Repositories.Interfaces
         List<string> DisplayImage(string categoryName);
         List<DesignVM> DisplaySynthesizeInfo(string categoryName);
         string DisplayImageFoodCategory(string categoryName);
+        void Delete(Guid id);
     }
 }

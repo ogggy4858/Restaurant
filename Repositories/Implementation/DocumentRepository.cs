@@ -79,5 +79,15 @@ namespace Repositories.Implementation
         {
             throw new NotImplementedException();
         }
+
+        public void Delete(Guid designId)
+        {
+            var list = _context.Documents.Where(x => x.DesignId == designId);
+            foreach(var item in list.ToList())
+            {
+                _context.Documents.Remove(item);
+            }
+            _context.SaveChanges();
+        }
     }
 }

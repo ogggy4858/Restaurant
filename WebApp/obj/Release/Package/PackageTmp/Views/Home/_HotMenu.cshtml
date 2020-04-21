@@ -1,0 +1,73 @@
+﻿@model ViewModels.DesignVM
+@{
+    var hotMenu = (ViewModels.HotMenuVM)ViewBag.MenuHot;
+}
+<div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+        <div class="col-md-7 heading-section ftco-animate text-center">
+            <h2 class="mb-4">@Model.Title</h2>
+            <p>@Model.Content</p>
+        </div>
+    </div>
+</div>
+
+<div class="container-wrap">
+    <div class="row no-gutters d-flex">
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food.Name</h3>
+                    <p>@hotMenu.Food.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food1.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food1.Name</h3>
+                    <p>@hotMenu.Food1.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food2.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food2.Name</h3>
+                    <p>@hotMenu.Food2.Description</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img order-lg-last" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food3.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food3.Name</h3>
+                    <p>@hotMenu.Food3.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img order-lg-last" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food4.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food4.Name</h3>
+                    <p>@hotMenu.Food4.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 d-flex ftco-animate">
+            <div class="services-wrap d-flex">
+                <a class="img order-lg-last" style="background-image: url(../../Areas/Admin/Libraries/images/@hotMenu.Food5.Image);"></a>
+                <div class="text p-4">
+                    <h3>@hotMenu.Food5.Name</h3>
+                    <p>@hotMenu.Food5.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

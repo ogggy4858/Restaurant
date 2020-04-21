@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ViewModels.DesignVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
+@{
+    ViewBag.Title = "Image";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+@Html.ActionLink("Thêm mới", "FoodCategoryCreate")
+
+<table class="table">
+    <tr>
+        <th>Hình ảnh</th>
+        <th>Status</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img style="width: 550px; height: auto" src="~/Areas/Admin/Libraries/images/@item.Documents.FirstOrDefault().FileName">
+            </td>
+            <td>
+                @if (item.Status == Common.CommonStatus.Active)
+                {
+                    <span>Đang được áp dụng</span>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-primary btn-foodCategory-add" data-id="@item.Id">Áp dụng</button>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("FoodCategory", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
+
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/interfaceManager.js"></script>
+}

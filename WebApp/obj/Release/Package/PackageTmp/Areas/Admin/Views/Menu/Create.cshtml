@@ -1,0 +1,90 @@
+﻿@model ViewModels.MenuVM
+
+@{
+    ViewBag.Title = "Quản lý Menu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+@using (Html.BeginForm("Create", "Menu", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId1, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId1, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId1, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId2, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId3, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId3, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId3, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId4, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId4, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId4, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId5, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId5, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId5, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId6, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId6, null,  new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId6, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId7, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId7, null, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId7, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FoodId8, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.FoodId8, null, new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.FoodId8, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "Index")
+            </div>
+
+        </div>
+    </div>
+}

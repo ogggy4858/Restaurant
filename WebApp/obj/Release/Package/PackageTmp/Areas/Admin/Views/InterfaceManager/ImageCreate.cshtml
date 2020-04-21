@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Quản lý giao diện: Image";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+@using (Html.BeginForm("ImageCreate", "InterfaceManager", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 1</span>
+            <div class="col-md-10">
+                <input type="file" name="image1">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 2</span>
+            <div class="col-md-10">
+                <input type="file" name="image2">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 3</span>
+            <div class="col-md-10">
+                <input type="file" name="image3">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 4</span>
+            <div class="col-md-10">
+                <input type="file" name="image4">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 5</span>
+            <div class="col-md-10">
+                <input type="file" name="image5">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 6</span>
+            <div class="col-md-10">
+                <input type="file" name="image6">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 7</span>
+            <div class="col-md-10">
+                <input type="file" name="image7">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <span class="col-md-2">Hình ảnh 8</span>
+            <div class="col-md-10">
+                <input type="file" name="image8">
+            </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-primary">Thêm mới</button>
+                @Html.ActionLink("Quay lại", "Image")
+            </div>
+        </div>
+    </div>
+}
+

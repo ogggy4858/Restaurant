@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ViewModels.DesignCategoryVM>
+@using X.PagedList;
+@using X.PagedList.Mvc;
+@{
+    ViewBag.Title = "Quản lý danh mục giao diện";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    @ViewBag.Title
+}
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Tên danh mục
+        </th>
+        <th>
+            Trạng thái
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Common.CommonStatus.StatusDisplay[item.Status]
+            </td>
+            <td>
+                <button type="button" class="btn btn-success">
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.Id })
+                </button>
+                <button type="button" class="btn btn-danger delete" data-id="@item.Id">
+                    Xóa
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<nav aria-label="Page navigation">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions()
+    {
+           UlElementClasses = new string[] { "pagination pagination-circle" },
+           LiElementClasses = new string[] { "page-item" },
+           PageClasses = new string[] { "page-link" }
+    })
+</nav>
+
+@section scripts{
+    <script src="~/Areas/Admin/Libraries/js/designCategory.js"></script>
+}

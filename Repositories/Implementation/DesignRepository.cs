@@ -528,6 +528,11 @@ namespace Repositories.Implementation
             return detail.Id;
         }
 
-
+        public void Delete(Guid id)
+        {
+            var detail = Detail(id);
+            _context.Designs.Remove(detail);
+            _context.SaveChanges();
+        }
     }
 }

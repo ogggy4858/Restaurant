@@ -1,0 +1,62 @@
+﻿@model WebApp.Models.RegisterViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body style="background: url(../../Areas/Admin/Libraries/images/photo-1552336658-762c1b1d9d4b.jfif); opacity: 1">
+    <div class="container">
+        <div class="row" style="margin-top: 200px; margin-left: 50px">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <span class="control-label col-md-2" style="color: white">
+                            Email
+                        </span>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="control-label col-md-2" style="color: white">
+                            Mật khẩu
+                        </span>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <span class="control-label col-md-2" style="color: white">Nhập lại mật khẩu</span>
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-default" value="Đăng ký" />
+                            <a href="/">Quay lại</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/assets/js/jquery-3.2.1.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+</body>
+</html>
+

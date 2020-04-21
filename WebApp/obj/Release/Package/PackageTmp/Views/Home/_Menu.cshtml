@@ -1,0 +1,115 @@
+﻿@model  ViewModels.DesignVM
+@{
+    var list = (ViewModels.MenuVM)ViewBag.Menu;
+}
+
+<div class="container">
+    <div class="row justify-content-center mb-5 pb-3 mt-5 pt-5">
+        <div class="col-md-7 heading-section text-center ftco-animate">
+            <h2 class="mb-4">@Model.Title</h2>
+            <p class="flip"><span class="deg1"></span><span class="deg2"></span><span class="deg3"></span></p>
+            <p class="mt-5">@Model.Content</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food1.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food1.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food1.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food2.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food2.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food2.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food3.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food3.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food3.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food4.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food4.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food4.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food5.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food5.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food5.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food6.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food6.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food6.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-entry d-flex ftco-animate">
+                <div class="img" style="background-image: url(../../Areas/Admin/Libraries/images/@list.Food7.Image);"></div>
+                <div class="desc pl-3">
+                    <div class="d-flex text align-items-center">
+                        <h3><span>@list.Food7.Name</span></h3>
+                    </div>
+                    <div class="d-block">
+                        <p>@list.Food7.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p style="text-align: center; padding-top: 10px">
+        <a href="~/Home/Menu" class="btn btn-white btn-outline-white p-3 px-xl-3 py-xl-2">Xem thêm</a>
+    </p>
+
+</div>
